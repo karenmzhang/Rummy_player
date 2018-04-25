@@ -1,0 +1,2135 @@
+4 of Diamonds
+3 of Hearts
+Ace of Hearts
+2 of Spades
+Jack of Hearts
+9 of Clubs
+4 of Clubs
+10 of Spades
+Ace of Clubs
+7 of Diamonds
+
+false
+Queen of Hearts
+King of Diamonds
+Jack of Spades
+3 of Clubs
+King of Clubs
+9 of Hearts
+4 of Hearts
+Queen of Clubs
+5 of Hearts
+Jack of Clubs
+
+false
+Round: 0
+Discard: King of Hearts
+
+Deck: 8 of Hearts
+Jack of Diamonds
+3 of Spades
+5 of Diamonds
+King of Spades
+10 of Diamonds
+2 of Clubs
+8 of Diamonds
+5 of Clubs
+6 of Spades
+8 of Clubs
+Ace of Spades
+2 of Hearts
+6 of Hearts
+2 of Diamonds
+Queen of Spades
+5 of Spades
+7 of Clubs
+10 of Clubs
+3 of Diamonds
+Queen of Diamonds
+Ace of Diamonds
+9 of Diamonds
+6 of Diamonds
+4 of Spades
+6 of Clubs
+7 of Spades
+8 of Spades
+10 of Hearts
+7 of Hearts
+9 of Spades
+
+Player1 hand: 
+4 of Diamonds
+3 of Hearts
+Ace of Hearts
+2 of Spades
+Jack of Hearts
+9 of Clubs
+4 of Clubs
+10 of Spades
+Ace of Clubs
+7 of Diamonds
+
+Player1 deadWood: 51
+Player2 hand: 
+Queen of Hearts
+King of Diamonds
+Jack of Spades
+3 of Clubs
+King of Clubs
+9 of Hearts
+4 of Hearts
+Queen of Clubs
+5 of Hearts
+Jack of Clubs
+
+Player2 deadWood: 51
+Player1 move: deck
+Player2 move: deck
+Player1 Discard: Ace of Hearts
+Player2 Discard: 9 of Hearts
+
+Round: 1
+Discard: King of Hearts
+Ace of Hearts
+9 of Hearts
+
+Deck: 3 of Spades
+5 of Diamonds
+King of Spades
+10 of Diamonds
+2 of Clubs
+8 of Diamonds
+5 of Clubs
+6 of Spades
+8 of Clubs
+Ace of Spades
+2 of Hearts
+6 of Hearts
+2 of Diamonds
+Queen of Spades
+5 of Spades
+7 of Clubs
+10 of Clubs
+3 of Diamonds
+Queen of Diamonds
+Ace of Diamonds
+9 of Diamonds
+6 of Diamonds
+4 of Spades
+6 of Clubs
+7 of Spades
+8 of Spades
+10 of Hearts
+7 of Hearts
+9 of Spades
+
+Player1 hand: 
+2 of Spades
+9 of Clubs
+10 of Spades
+3 of Hearts
+8 of Hearts
+Jack of Hearts
+4 of Diamonds
+Ace of Clubs
+7 of Diamonds
+4 of Clubs
+
+Player1 deadWood: 58
+Player2 hand: 
+Jack of Clubs
+Jack of Spades
+Queen of Clubs
+Queen of Hearts
+King of Clubs
+Jack of Diamonds
+King of Diamonds
+5 of Hearts
+3 of Clubs
+4 of Hearts
+
+Player2 deadWood: 52
+Player1 move: deck
+Player2 move: deck
+Player1 Discard: 3 of Spades
+Player2 Discard: 5 of Diamonds
+
+Round: 2
+Discard: King of Hearts
+Ace of Hearts
+9 of Hearts
+3 of Spades
+5 of Diamonds
+
+Deck: King of Spades
+10 of Diamonds
+2 of Clubs
+8 of Diamonds
+5 of Clubs
+6 of Spades
+8 of Clubs
+Ace of Spades
+2 of Hearts
+6 of Hearts
+2 of Diamonds
+Queen of Spades
+5 of Spades
+7 of Clubs
+10 of Clubs
+3 of Diamonds
+Queen of Diamonds
+Ace of Diamonds
+9 of Diamonds
+6 of Diamonds
+4 of Spades
+6 of Clubs
+7 of Spades
+8 of Spades
+10 of Hearts
+7 of Hearts
+9 of Spades
+
+Player1 hand: 
+7 of Diamonds
+10 of Spades
+9 of Clubs
+Ace of Clubs
+8 of Hearts
+4 of Clubs
+4 of Diamonds
+3 of Hearts
+2 of Spades
+Jack of Hearts
+
+Player1 deadWood: 58
+Player2 hand: 
+4 of Hearts
+King of Clubs
+Jack of Spades
+Queen of Hearts
+3 of Clubs
+King of Diamonds
+Queen of Clubs
+5 of Hearts
+Jack of Diamonds
+Jack of Clubs
+
+Player2 deadWood: 52
+Player1 move: deck
+Player2 move: discardPile
+Player1 Discard: 8 of Hearts
+Player2 Discard: 5 of Hearts
+
+Round: 3
+Discard: Ace of Hearts
+9 of Hearts
+3 of Spades
+5 of Diamonds
+8 of Hearts
+5 of Hearts
+
+Deck: 10 of Diamonds
+2 of Clubs
+8 of Diamonds
+5 of Clubs
+6 of Spades
+8 of Clubs
+Ace of Spades
+2 of Hearts
+6 of Hearts
+2 of Diamonds
+Queen of Spades
+5 of Spades
+7 of Clubs
+10 of Clubs
+3 of Diamonds
+Queen of Diamonds
+Ace of Diamonds
+9 of Diamonds
+6 of Diamonds
+4 of Spades
+6 of Clubs
+7 of Spades
+8 of Spades
+10 of Hearts
+7 of Hearts
+9 of Spades
+
+Player1 hand: 
+4 of Clubs
+4 of Diamonds
+7 of Diamonds
+King of Spades
+3 of Hearts
+Jack of Hearts
+10 of Spades
+9 of Clubs
+Ace of Clubs
+2 of Spades
+
+Player1 deadWood: 60
+Player2 hand: 
+Queen of Clubs
+Jack of Clubs
+King of Clubs
+Jack of Spades
+King of Diamonds
+Jack of Diamonds
+King of Hearts
+3 of Clubs
+Queen of Hearts
+4 of Hearts
+
+Player2 deadWood: 27
+Player1 move: discardPile
+Player2 move: discardPile
+Player1 Discard: 7 of Diamonds
+Player2 Discard: King of Clubs
+
+Round: 4
+Discard: 3 of Spades
+5 of Diamonds
+8 of Hearts
+5 of Hearts
+7 of Diamonds
+King of Clubs
+
+Deck: 10 of Diamonds
+2 of Clubs
+8 of Diamonds
+5 of Clubs
+6 of Spades
+8 of Clubs
+Ace of Spades
+2 of Hearts
+6 of Hearts
+2 of Diamonds
+Queen of Spades
+5 of Spades
+7 of Clubs
+10 of Clubs
+3 of Diamonds
+Queen of Diamonds
+Ace of Diamonds
+9 of Diamonds
+6 of Diamonds
+4 of Spades
+6 of Clubs
+7 of Spades
+8 of Spades
+10 of Hearts
+7 of Hearts
+9 of Spades
+
+Player1 hand: 
+9 of Clubs
+King of Spades
+Jack of Hearts
+Ace of Hearts
+Ace of Clubs
+3 of Hearts
+4 of Diamonds
+10 of Spades
+4 of Clubs
+2 of Spades
+
+Player1 deadWood: 54
+Player2 hand: 
+Jack of Spades
+4 of Hearts
+Jack of Diamonds
+Jack of Clubs
+3 of Clubs
+Queen of Clubs
+9 of Hearts
+Queen of Hearts
+King of Hearts
+King of Diamonds
+
+Player2 deadWood: 56
+Player1 move: deck
+Player2 move: discardPile
+Player1 Discard: Ace of Hearts
+Player2 Discard: King of Diamonds
+
+Round: 5
+Discard: 5 of Diamonds
+8 of Hearts
+5 of Hearts
+7 of Diamonds
+King of Clubs
+Ace of Hearts
+King of Diamonds
+
+Deck: 2 of Clubs
+8 of Diamonds
+5 of Clubs
+6 of Spades
+8 of Clubs
+Ace of Spades
+2 of Hearts
+6 of Hearts
+2 of Diamonds
+Queen of Spades
+5 of Spades
+7 of Clubs
+10 of Clubs
+3 of Diamonds
+Queen of Diamonds
+Ace of Diamonds
+9 of Diamonds
+6 of Diamonds
+4 of Spades
+6 of Clubs
+7 of Spades
+8 of Spades
+10 of Hearts
+7 of Hearts
+9 of Spades
+
+Player1 hand: 
+2 of Spades
+4 of Clubs
+Ace of Clubs
+9 of Clubs
+King of Spades
+3 of Hearts
+10 of Spades
+4 of Diamonds
+Jack of Hearts
+10 of Diamonds
+
+Player1 deadWood: 63
+Player2 hand: 
+Jack of Diamonds
+3 of Spades
+4 of Hearts
+3 of Clubs
+King of Hearts
+Jack of Clubs
+Jack of Spades
+Queen of Clubs
+9 of Hearts
+Queen of Hearts
+
+Player2 deadWood: 49
+Player1 move: deck
+Player2 move: discardPile
+Player1 Discard: King of Spades
+Player2 Discard: 3 of Clubs
+
+Round: 6
+Discard: 8 of Hearts
+5 of Hearts
+7 of Diamonds
+King of Clubs
+Ace of Hearts
+King of Diamonds
+King of Spades
+3 of Clubs
+
+Deck: 8 of Diamonds
+5 of Clubs
+6 of Spades
+8 of Clubs
+Ace of Spades
+2 of Hearts
+6 of Hearts
+2 of Diamonds
+Queen of Spades
+5 of Spades
+7 of Clubs
+10 of Clubs
+3 of Diamonds
+Queen of Diamonds
+Ace of Diamonds
+9 of Diamonds
+6 of Diamonds
+4 of Spades
+6 of Clubs
+7 of Spades
+8 of Spades
+10 of Hearts
+7 of Hearts
+9 of Spades
+
+Player1 hand: 
+4 of Clubs
+4 of Diamonds
+Ace of Clubs
+9 of Clubs
+2 of Spades
+10 of Diamonds
+3 of Hearts
+10 of Spades
+Jack of Hearts
+2 of Clubs
+
+Player1 deadWood: 55
+Player2 hand: 
+Jack of Spades
+4 of Hearts
+5 of Diamonds
+King of Hearts
+Jack of Diamonds
+Jack of Clubs
+Queen of Clubs
+Queen of Hearts
+9 of Hearts
+3 of Spades
+
+Player2 deadWood: 51
+Player1 move: deck
+Player2 move: discardPile
+Player1 Discard: 8 of Diamonds
+Player2 Discard: Queen of Hearts
+
+Round: 7
+Discard: 5 of Hearts
+7 of Diamonds
+King of Clubs
+Ace of Hearts
+King of Diamonds
+King of Spades
+3 of Clubs
+8 of Diamonds
+Queen of Hearts
+
+Deck: 5 of Clubs
+6 of Spades
+8 of Clubs
+Ace of Spades
+2 of Hearts
+6 of Hearts
+2 of Diamonds
+Queen of Spades
+5 of Spades
+7 of Clubs
+10 of Clubs
+3 of Diamonds
+Queen of Diamonds
+Ace of Diamonds
+9 of Diamonds
+6 of Diamonds
+4 of Spades
+6 of Clubs
+7 of Spades
+8 of Spades
+10 of Hearts
+7 of Hearts
+9 of Spades
+
+Player1 hand: 
+9 of Clubs
+2 of Clubs
+3 of Hearts
+Jack of Hearts
+4 of Diamonds
+2 of Spades
+Ace of Clubs
+10 of Diamonds
+10 of Spades
+4 of Clubs
+
+Player1 deadWood: 55
+Player2 hand: 
+8 of Hearts
+Queen of Clubs
+King of Hearts
+5 of Diamonds
+Jack of Diamonds
+Jack of Spades
+9 of Hearts
+3 of Spades
+4 of Hearts
+Jack of Clubs
+
+Player2 deadWood: 49
+Player1 move: deck
+Player2 move: discardPile
+Player1 Discard: 5 of Clubs
+Player2 Discard: Queen of Clubs
+
+Round: 8
+Discard: 7 of Diamonds
+King of Clubs
+Ace of Hearts
+King of Diamonds
+King of Spades
+3 of Clubs
+8 of Diamonds
+Queen of Hearts
+5 of Clubs
+Queen of Clubs
+
+Deck: 6 of Spades
+8 of Clubs
+Ace of Spades
+2 of Hearts
+6 of Hearts
+2 of Diamonds
+Queen of Spades
+5 of Spades
+7 of Clubs
+10 of Clubs
+3 of Diamonds
+Queen of Diamonds
+Ace of Diamonds
+9 of Diamonds
+6 of Diamonds
+4 of Spades
+6 of Clubs
+7 of Spades
+8 of Spades
+10 of Hearts
+7 of Hearts
+9 of Spades
+
+Player1 hand: 
+10 of Spades
+Jack of Hearts
+2 of Clubs
+4 of Diamonds
+4 of Clubs
+9 of Clubs
+Ace of Clubs
+2 of Spades
+3 of Hearts
+10 of Diamonds
+
+Player1 deadWood: 55
+Player2 hand: 
+8 of Hearts
+5 of Diamonds
+Jack of Clubs
+3 of Spades
+Jack of Spades
+Jack of Diamonds
+King of Hearts
+4 of Hearts
+5 of Hearts
+9 of Hearts
+
+Player2 deadWood: 44
+Player1 move: discardPile
+Player2 move: deck
+Player1 Discard: 2 of Clubs
+Player2 Discard: Jack of Diamonds
+
+Round: 9
+Discard: King of Clubs
+Ace of Hearts
+King of Diamonds
+King of Spades
+3 of Clubs
+8 of Diamonds
+Queen of Hearts
+5 of Clubs
+Queen of Clubs
+2 of Clubs
+Jack of Diamonds
+
+Deck: 8 of Clubs
+Ace of Spades
+2 of Hearts
+6 of Hearts
+2 of Diamonds
+Queen of Spades
+5 of Spades
+7 of Clubs
+10 of Clubs
+3 of Diamonds
+Queen of Diamonds
+Ace of Diamonds
+9 of Diamonds
+6 of Diamonds
+4 of Spades
+6 of Clubs
+7 of Spades
+8 of Spades
+10 of Hearts
+7 of Hearts
+9 of Spades
+
+Player1 hand: 
+10 of Spades
+10 of Diamonds
+3 of Hearts
+4 of Clubs
+7 of Diamonds
+9 of Clubs
+2 of Spades
+4 of Diamonds
+Jack of Hearts
+Ace of Clubs
+
+Player1 deadWood: 60
+Player2 hand: 
+Jack of Clubs
+4 of Hearts
+5 of Diamonds
+9 of Hearts
+King of Hearts
+5 of Hearts
+6 of Spades
+Jack of Spades
+3 of Spades
+8 of Hearts
+
+Player2 deadWood: 70
+Player1 move: deck
+Player2 move: discardPile
+Player1 Discard: Ace of Clubs
+Player2 Discard: 3 of Spades
+
+Round: 10
+Discard: Ace of Hearts
+King of Diamonds
+King of Spades
+3 of Clubs
+8 of Diamonds
+Queen of Hearts
+5 of Clubs
+Queen of Clubs
+2 of Clubs
+Jack of Diamonds
+Ace of Clubs
+3 of Spades
+
+Deck: Ace of Spades
+2 of Hearts
+6 of Hearts
+2 of Diamonds
+Queen of Spades
+5 of Spades
+7 of Clubs
+10 of Clubs
+3 of Diamonds
+Queen of Diamonds
+Ace of Diamonds
+9 of Diamonds
+6 of Diamonds
+4 of Spades
+6 of Clubs
+7 of Spades
+8 of Spades
+10 of Hearts
+7 of Hearts
+9 of Spades
+
+Player1 hand: 
+3 of Hearts
+4 of Diamonds
+10 of Diamonds
+Jack of Hearts
+2 of Spades
+9 of Clubs
+10 of Spades
+7 of Diamonds
+4 of Clubs
+8 of Clubs
+
+Player1 deadWood: 67
+Player2 hand: 
+8 of Hearts
+Jack of Clubs
+5 of Hearts
+5 of Diamonds
+Jack of Spades
+4 of Hearts
+9 of Hearts
+6 of Spades
+King of Hearts
+King of Clubs
+
+Player2 deadWood: 77
+Player1 move: discardPile
+Player2 move: deck
+Player1 Discard: 4 of Diamonds
+Player2 Discard: 5 of Diamonds
+
+Round: 11
+Discard: King of Diamonds
+King of Spades
+3 of Clubs
+8 of Diamonds
+Queen of Hearts
+5 of Clubs
+Queen of Clubs
+2 of Clubs
+Jack of Diamonds
+Ace of Clubs
+3 of Spades
+4 of Diamonds
+5 of Diamonds
+
+Deck: 2 of Hearts
+6 of Hearts
+2 of Diamonds
+Queen of Spades
+5 of Spades
+7 of Clubs
+10 of Clubs
+3 of Diamonds
+Queen of Diamonds
+Ace of Diamonds
+9 of Diamonds
+6 of Diamonds
+4 of Spades
+6 of Clubs
+7 of Spades
+8 of Spades
+10 of Hearts
+7 of Hearts
+9 of Spades
+
+Player1 hand: 
+Jack of Hearts
+2 of Spades
+7 of Diamonds
+3 of Hearts
+10 of Diamonds
+8 of Clubs
+9 of Clubs
+Ace of Hearts
+4 of Clubs
+10 of Spades
+
+Player1 deadWood: 64
+Player2 hand: 
+9 of Hearts
+Ace of Spades
+4 of Hearts
+King of Hearts
+King of Clubs
+8 of Hearts
+6 of Spades
+Jack of Spades
+Jack of Clubs
+5 of Hearts
+
+Player2 deadWood: 73
+Player1 move: deck
+Player2 move: discardPile
+Player1 Discard: 10 of Diamonds
+Player2 Discard: 8 of Hearts
+
+Round: 12
+Discard: King of Spades
+3 of Clubs
+8 of Diamonds
+Queen of Hearts
+5 of Clubs
+Queen of Clubs
+2 of Clubs
+Jack of Diamonds
+Ace of Clubs
+3 of Spades
+4 of Diamonds
+5 of Diamonds
+10 of Diamonds
+8 of Hearts
+
+Deck: 6 of Hearts
+2 of Diamonds
+Queen of Spades
+5 of Spades
+7 of Clubs
+10 of Clubs
+3 of Diamonds
+Queen of Diamonds
+Ace of Diamonds
+9 of Diamonds
+6 of Diamonds
+4 of Spades
+6 of Clubs
+7 of Spades
+8 of Spades
+10 of Hearts
+7 of Hearts
+9 of Spades
+
+Player1 hand: 
+4 of Clubs
+9 of Clubs
+7 of Diamonds
+10 of Spades
+2 of Hearts
+Jack of Hearts
+2 of Spades
+Ace of Hearts
+3 of Hearts
+8 of Clubs
+
+Player1 deadWood: 50
+Player2 hand: 
+9 of Hearts
+King of Hearts
+King of Clubs
+5 of Hearts
+Jack of Clubs
+4 of Hearts
+6 of Spades
+Jack of Spades
+Ace of Spades
+King of Diamonds
+
+Player2 deadWood: 45
+Player1 move: discardPile
+Player2 move: discardPile
+Player1 Discard: Ace of Hearts
+Player2 Discard: 6 of Spades
+
+Round: 13
+Discard: 8 of Diamonds
+Queen of Hearts
+5 of Clubs
+Queen of Clubs
+2 of Clubs
+Jack of Diamonds
+Ace of Clubs
+3 of Spades
+4 of Diamonds
+5 of Diamonds
+10 of Diamonds
+8 of Hearts
+Ace of Hearts
+6 of Spades
+
+Deck: 6 of Hearts
+2 of Diamonds
+Queen of Spades
+5 of Spades
+7 of Clubs
+10 of Clubs
+3 of Diamonds
+Queen of Diamonds
+Ace of Diamonds
+9 of Diamonds
+6 of Diamonds
+4 of Spades
+6 of Clubs
+7 of Spades
+8 of Spades
+10 of Hearts
+7 of Hearts
+9 of Spades
+
+Player1 hand: 
+10 of Spades
+3 of Hearts
+Jack of Hearts
+King of Spades
+7 of Diamonds
+2 of Hearts
+8 of Clubs
+9 of Clubs
+4 of Clubs
+2 of Spades
+
+Player1 deadWood: 65
+Player2 hand: 
+King of Clubs
+4 of Hearts
+Ace of Spades
+King of Diamonds
+Jack of Spades
+9 of Hearts
+King of Hearts
+5 of Hearts
+3 of Clubs
+Jack of Clubs
+
+Player2 deadWood: 42
+Player1 move: deck
+Player2 move: discardPile
+Player1 Discard: 2 of Spades
+Player2 Discard: Jack of Spades
+
+Round: 14
+Discard: Queen of Hearts
+5 of Clubs
+Queen of Clubs
+2 of Clubs
+Jack of Diamonds
+Ace of Clubs
+3 of Spades
+4 of Diamonds
+5 of Diamonds
+10 of Diamonds
+8 of Hearts
+Ace of Hearts
+6 of Spades
+2 of Spades
+Jack of Spades
+
+Deck: 2 of Diamonds
+Queen of Spades
+5 of Spades
+7 of Clubs
+10 of Clubs
+3 of Diamonds
+Queen of Diamonds
+Ace of Diamonds
+9 of Diamonds
+6 of Diamonds
+4 of Spades
+6 of Clubs
+7 of Spades
+8 of Spades
+10 of Hearts
+7 of Hearts
+9 of Spades
+
+Player1 hand: 
+10 of Spades
+6 of Hearts
+2 of Hearts
+Jack of Hearts
+8 of Clubs
+3 of Hearts
+9 of Clubs
+4 of Clubs
+King of Spades
+7 of Diamonds
+
+Player1 deadWood: 69
+Player2 hand: 
+King of Diamonds
+King of Clubs
+Jack of Clubs
+4 of Hearts
+8 of Diamonds
+3 of Clubs
+9 of Hearts
+5 of Hearts
+King of Hearts
+Ace of Spades
+
+Player2 deadWood: 40
+Player1 move: deck
+Player2 move: discardPile
+Player1 Discard: Jack of Hearts
+Player2 Discard: 3 of Clubs
+
+Round: 15
+Discard: 5 of Clubs
+Queen of Clubs
+2 of Clubs
+Jack of Diamonds
+Ace of Clubs
+3 of Spades
+4 of Diamonds
+5 of Diamonds
+10 of Diamonds
+8 of Hearts
+Ace of Hearts
+6 of Spades
+2 of Spades
+Jack of Spades
+Jack of Hearts
+3 of Clubs
+
+Deck: Queen of Spades
+5 of Spades
+7 of Clubs
+10 of Clubs
+3 of Diamonds
+Queen of Diamonds
+Ace of Diamonds
+9 of Diamonds
+6 of Diamonds
+4 of Spades
+6 of Clubs
+7 of Spades
+8 of Spades
+10 of Hearts
+7 of Hearts
+9 of Spades
+
+Player1 hand: 
+3 of Hearts
+2 of Diamonds
+4 of Clubs
+6 of Hearts
+9 of Clubs
+7 of Diamonds
+King of Spades
+8 of Clubs
+10 of Spades
+2 of Hearts
+
+Player1 deadWood: 61
+Player2 hand: 
+King of Clubs
+9 of Hearts
+4 of Hearts
+8 of Diamonds
+Ace of Spades
+Jack of Clubs
+King of Hearts
+Queen of Hearts
+King of Diamonds
+5 of Hearts
+
+Player2 deadWood: 47
+Player1 move: discardPile
+Player2 move: discardPile
+Player1 Discard: 2 of Hearts
+Player2 Discard: Jack of Clubs
+
+Round: 16
+Discard: 2 of Clubs
+Jack of Diamonds
+Ace of Clubs
+3 of Spades
+4 of Diamonds
+5 of Diamonds
+10 of Diamonds
+8 of Hearts
+Ace of Hearts
+6 of Spades
+2 of Spades
+Jack of Spades
+Jack of Hearts
+3 of Clubs
+2 of Hearts
+Jack of Clubs
+
+Deck: Queen of Spades
+5 of Spades
+7 of Clubs
+10 of Clubs
+3 of Diamonds
+Queen of Diamonds
+Ace of Diamonds
+9 of Diamonds
+6 of Diamonds
+4 of Spades
+6 of Clubs
+7 of Spades
+8 of Spades
+10 of Hearts
+7 of Hearts
+9 of Spades
+
+Player1 hand: 
+King of Spades
+2 of Diamonds
+4 of Clubs
+7 of Diamonds
+5 of Clubs
+6 of Hearts
+8 of Clubs
+9 of Clubs
+10 of Spades
+3 of Hearts
+
+Player1 deadWood: 64
+Player2 hand: 
+9 of Hearts
+8 of Diamonds
+4 of Hearts
+Queen of Clubs
+King of Diamonds
+5 of Hearts
+King of Hearts
+Ace of Spades
+Queen of Hearts
+King of Clubs
+
+Player2 deadWood: 47
+Player1 move: deck
+Player2 move: deck
+Player1 Discard: King of Spades
+Player2 Discard: 4 of Hearts
+
+Round: 17
+Discard: 2 of Clubs
+Jack of Diamonds
+Ace of Clubs
+3 of Spades
+4 of Diamonds
+5 of Diamonds
+10 of Diamonds
+8 of Hearts
+Ace of Hearts
+6 of Spades
+2 of Spades
+Jack of Spades
+Jack of Hearts
+3 of Clubs
+2 of Hearts
+Jack of Clubs
+King of Spades
+4 of Hearts
+
+Deck: 7 of Clubs
+10 of Clubs
+3 of Diamonds
+Queen of Diamonds
+Ace of Diamonds
+9 of Diamonds
+6 of Diamonds
+4 of Spades
+6 of Clubs
+7 of Spades
+8 of Spades
+10 of Hearts
+7 of Hearts
+9 of Spades
+
+Player1 hand: 
+8 of Clubs
+2 of Diamonds
+5 of Clubs
+6 of Hearts
+4 of Clubs
+Queen of Spades
+10 of Spades
+3 of Hearts
+9 of Clubs
+7 of Diamonds
+
+Player1 deadWood: 64
+Player2 hand: 
+Queen of Hearts
+Queen of Clubs
+5 of Hearts
+9 of Hearts
+King of Clubs
+King of Hearts
+5 of Spades
+Ace of Spades
+8 of Diamonds
+King of Diamonds
+
+Player2 deadWood: 48
+Player1 move: discardPile
+Player2 move: discardPile
+Player1 Discard: 10 of Spades
+Player2 Discard: Ace of Spades
+
+Round: 18
+Discard: Ace of Clubs
+3 of Spades
+4 of Diamonds
+5 of Diamonds
+10 of Diamonds
+8 of Hearts
+Ace of Hearts
+6 of Spades
+2 of Spades
+Jack of Spades
+Jack of Hearts
+3 of Clubs
+2 of Hearts
+Jack of Clubs
+King of Spades
+4 of Hearts
+10 of Spades
+Ace of Spades
+
+Deck: 7 of Clubs
+10 of Clubs
+3 of Diamonds
+Queen of Diamonds
+Ace of Diamonds
+9 of Diamonds
+6 of Diamonds
+4 of Spades
+6 of Clubs
+7 of Spades
+8 of Spades
+10 of Hearts
+7 of Hearts
+9 of Spades
+
+Player1 hand: 
+3 of Hearts
+2 of Clubs
+5 of Clubs
+9 of Clubs
+7 of Diamonds
+4 of Clubs
+Queen of Spades
+6 of Hearts
+2 of Diamonds
+8 of Clubs
+
+Player1 deadWood: 56
+Player2 hand: 
+5 of Spades
+King of Clubs
+Queen of Clubs
+9 of Hearts
+8 of Diamonds
+King of Hearts
+Jack of Diamonds
+King of Diamonds
+Queen of Hearts
+5 of Hearts
+
+Player2 deadWood: 57
+Player1 move: deck
+Player2 move: discardPile
+Player1 Discard: 9 of Clubs
+Player2 Discard: King of Hearts
+
+Round: 19
+Discard: 3 of Spades
+4 of Diamonds
+5 of Diamonds
+10 of Diamonds
+8 of Hearts
+Ace of Hearts
+6 of Spades
+2 of Spades
+Jack of Spades
+Jack of Hearts
+3 of Clubs
+2 of Hearts
+Jack of Clubs
+King of Spades
+4 of Hearts
+10 of Spades
+Ace of Spades
+9 of Clubs
+King of Hearts
+
+Deck: 10 of Clubs
+3 of Diamonds
+Queen of Diamonds
+Ace of Diamonds
+9 of Diamonds
+6 of Diamonds
+4 of Spades
+6 of Clubs
+7 of Spades
+8 of Spades
+10 of Hearts
+7 of Hearts
+9 of Spades
+
+Player1 hand: 
+4 of Clubs
+7 of Diamonds
+8 of Clubs
+2 of Clubs
+6 of Hearts
+7 of Clubs
+3 of Hearts
+2 of Diamonds
+Queen of Spades
+5 of Clubs
+
+Player1 deadWood: 54
+Player2 hand: 
+8 of Diamonds
+King of Clubs
+Ace of Clubs
+9 of Hearts
+Jack of Diamonds
+King of Diamonds
+5 of Spades
+5 of Hearts
+Queen of Hearts
+Queen of Clubs
+
+Player2 deadWood: 78
+Player1 move: deck
+Player2 move: deck
+Player1 Discard: 7 of Clubs
+Player2 Discard: 9 of Hearts
+
+Round: 20
+Discard: 3 of Spades
+4 of Diamonds
+5 of Diamonds
+10 of Diamonds
+8 of Hearts
+Ace of Hearts
+6 of Spades
+2 of Spades
+Jack of Spades
+Jack of Hearts
+3 of Clubs
+2 of Hearts
+Jack of Clubs
+King of Spades
+4 of Hearts
+10 of Spades
+Ace of Spades
+9 of Clubs
+King of Hearts
+7 of Clubs
+9 of Hearts
+
+Deck: Queen of Diamonds
+Ace of Diamonds
+9 of Diamonds
+6 of Diamonds
+4 of Spades
+6 of Clubs
+7 of Spades
+8 of Spades
+10 of Hearts
+7 of Hearts
+9 of Spades
+
+Player1 hand: 
+10 of Clubs
+6 of Hearts
+8 of Clubs
+7 of Diamonds
+3 of Hearts
+5 of Clubs
+2 of Clubs
+Queen of Spades
+4 of Clubs
+2 of Diamonds
+
+Player1 deadWood: 57
+Player2 hand: 
+Queen of Hearts
+King of Diamonds
+King of Clubs
+Ace of Clubs
+5 of Hearts
+5 of Spades
+8 of Diamonds
+3 of Diamonds
+Queen of Clubs
+Jack of Diamonds
+
+Player2 deadWood: 72
+Player1 move: discardPile
+Player2 move: discardPile
+Player1 Discard: 4 of Clubs
+Player2 Discard: Queen of Clubs
+
+Round: 21
+Discard: 5 of Diamonds
+10 of Diamonds
+8 of Hearts
+Ace of Hearts
+6 of Spades
+2 of Spades
+Jack of Spades
+Jack of Hearts
+3 of Clubs
+2 of Hearts
+Jack of Clubs
+King of Spades
+4 of Hearts
+10 of Spades
+Ace of Spades
+9 of Clubs
+King of Hearts
+7 of Clubs
+9 of Hearts
+4 of Clubs
+Queen of Clubs
+
+Deck: Queen of Diamonds
+Ace of Diamonds
+9 of Diamonds
+6 of Diamonds
+4 of Spades
+6 of Clubs
+7 of Spades
+8 of Spades
+10 of Hearts
+7 of Hearts
+9 of Spades
+
+Player1 hand: 
+7 of Diamonds
+Queen of Spades
+2 of Diamonds
+8 of Clubs
+6 of Hearts
+3 of Hearts
+3 of Spades
+10 of Clubs
+5 of Clubs
+2 of Clubs
+
+Player1 deadWood: 56
+Player2 hand: 
+4 of Diamonds
+Jack of Diamonds
+8 of Diamonds
+Ace of Clubs
+5 of Spades
+King of Diamonds
+5 of Hearts
+Queen of Hearts
+3 of Diamonds
+King of Clubs
+
+Player2 deadWood: 66
+Player1 move: discardPile
+Player2 move: discardPile
+Player1 Discard: 7 of Diamonds
+Player2 Discard: King of Clubs
+
+Round: 22
+Discard: 8 of Hearts
+Ace of Hearts
+6 of Spades
+2 of Spades
+Jack of Spades
+Jack of Hearts
+3 of Clubs
+2 of Hearts
+Jack of Clubs
+King of Spades
+4 of Hearts
+10 of Spades
+Ace of Spades
+9 of Clubs
+King of Hearts
+7 of Clubs
+9 of Hearts
+4 of Clubs
+Queen of Clubs
+7 of Diamonds
+King of Clubs
+
+Deck: Queen of Diamonds
+Ace of Diamonds
+9 of Diamonds
+6 of Diamonds
+4 of Spades
+6 of Clubs
+7 of Spades
+8 of Spades
+10 of Hearts
+7 of Hearts
+9 of Spades
+
+Player1 hand: 
+3 of Spades
+5 of Diamonds
+10 of Clubs
+3 of Hearts
+Queen of Spades
+5 of Clubs
+8 of Clubs
+2 of Clubs
+2 of Diamonds
+6 of Hearts
+
+Player1 deadWood: 54
+Player2 hand: 
+8 of Diamonds
+Queen of Hearts
+10 of Diamonds
+Ace of Clubs
+5 of Spades
+4 of Diamonds
+5 of Hearts
+Jack of Diamonds
+King of Diamonds
+3 of Diamonds
+
+Player2 deadWood: 66
+Player1 move: deck
+Player2 move: deck
+Player1 Discard: 3 of Hearts
+Player2 Discard: Ace of Diamonds
+
+Round: 23
+Discard: 8 of Hearts
+Ace of Hearts
+6 of Spades
+2 of Spades
+Jack of Spades
+Jack of Hearts
+3 of Clubs
+2 of Hearts
+Jack of Clubs
+King of Spades
+4 of Hearts
+10 of Spades
+Ace of Spades
+9 of Clubs
+King of Hearts
+7 of Clubs
+9 of Hearts
+4 of Clubs
+Queen of Clubs
+7 of Diamonds
+King of Clubs
+3 of Hearts
+Ace of Diamonds
+
+Deck: 9 of Diamonds
+6 of Diamonds
+4 of Spades
+6 of Clubs
+7 of Spades
+8 of Spades
+10 of Hearts
+7 of Hearts
+9 of Spades
+
+Player1 hand: 
+8 of Clubs
+10 of Clubs
+5 of Clubs
+6 of Hearts
+2 of Diamonds
+Queen of Diamonds
+3 of Spades
+2 of Clubs
+5 of Diamonds
+Queen of Spades
+
+Player1 deadWood: 61
+Player2 hand: 
+4 of Diamonds
+10 of Diamonds
+Queen of Hearts
+8 of Diamonds
+King of Diamonds
+5 of Spades
+5 of Hearts
+Jack of Diamonds
+3 of Diamonds
+Ace of Clubs
+
+Player2 deadWood: 66
+Player1 move: discardPile
+Player2 move: discardPile
+Player1 Discard: 5 of Clubs
+Player2 Discard: 8 of Diamonds
+
+Round: 24
+Discard: 6 of Spades
+2 of Spades
+Jack of Spades
+Jack of Hearts
+3 of Clubs
+2 of Hearts
+Jack of Clubs
+King of Spades
+4 of Hearts
+10 of Spades
+Ace of Spades
+9 of Clubs
+King of Hearts
+7 of Clubs
+9 of Hearts
+4 of Clubs
+Queen of Clubs
+7 of Diamonds
+King of Clubs
+3 of Hearts
+Ace of Diamonds
+5 of Clubs
+8 of Diamonds
+
+Deck: 9 of Diamonds
+6 of Diamonds
+4 of Spades
+6 of Clubs
+7 of Spades
+8 of Spades
+10 of Hearts
+7 of Hearts
+9 of Spades
+
+Player1 hand: 
+6 of Hearts
+8 of Hearts
+10 of Clubs
+3 of Spades
+2 of Diamonds
+5 of Diamonds
+Queen of Diamonds
+8 of Clubs
+Queen of Spades
+2 of Clubs
+
+Player1 deadWood: 64
+Player2 hand: 
+Ace of Clubs
+5 of Spades
+Ace of Hearts
+5 of Hearts
+10 of Diamonds
+Jack of Diamonds
+King of Diamonds
+4 of Diamonds
+Queen of Hearts
+3 of Diamonds
+
+Player2 deadWood: 59
+Player1 move: discardPile
+Player2 move: discardPile
+Player1 Discard: 2 of Diamonds
+Player2 Discard: 10 of Diamonds
+
+Round: 25
+Discard: Jack of Spades
+Jack of Hearts
+3 of Clubs
+2 of Hearts
+Jack of Clubs
+King of Spades
+4 of Hearts
+10 of Spades
+Ace of Spades
+9 of Clubs
+King of Hearts
+7 of Clubs
+9 of Hearts
+4 of Clubs
+Queen of Clubs
+7 of Diamonds
+King of Clubs
+3 of Hearts
+Ace of Diamonds
+5 of Clubs
+8 of Diamonds
+2 of Diamonds
+10 of Diamonds
+
+Deck: 9 of Diamonds
+6 of Diamonds
+4 of Spades
+6 of Clubs
+7 of Spades
+8 of Spades
+10 of Hearts
+7 of Hearts
+9 of Spades
+
+Player1 hand: 
+3 of Spades
+6 of Hearts
+8 of Hearts
+8 of Clubs
+6 of Spades
+5 of Diamonds
+Queen of Diamonds
+Queen of Spades
+10 of Clubs
+2 of Clubs
+
+Player1 deadWood: 68
+Player2 hand: 
+2 of Spades
+5 of Spades
+3 of Diamonds
+Ace of Clubs
+5 of Hearts
+Queen of Hearts
+Ace of Hearts
+Jack of Diamonds
+4 of Diamonds
+King of Diamonds
+
+Player2 deadWood: 51
+Player1 move: deck
+Player2 move: discardPile
+Player1 Discard: 5 of Diamonds
+Player2 Discard: 4 of Diamonds
+
+Round: 26
+Discard: Jack of Hearts
+3 of Clubs
+2 of Hearts
+Jack of Clubs
+King of Spades
+4 of Hearts
+10 of Spades
+Ace of Spades
+9 of Clubs
+King of Hearts
+7 of Clubs
+9 of Hearts
+4 of Clubs
+Queen of Clubs
+7 of Diamonds
+King of Clubs
+3 of Hearts
+Ace of Diamonds
+5 of Clubs
+8 of Diamonds
+2 of Diamonds
+10 of Diamonds
+5 of Diamonds
+4 of Diamonds
+
+Deck: 6 of Diamonds
+4 of Spades
+6 of Clubs
+7 of Spades
+8 of Spades
+10 of Hearts
+7 of Hearts
+9 of Spades
+
+Player1 hand: 
+3 of Spades
+9 of Diamonds
+Queen of Diamonds
+2 of Clubs
+6 of Spades
+Queen of Spades
+8 of Clubs
+8 of Hearts
+6 of Hearts
+10 of Clubs
+
+Player1 deadWood: 72
+Player2 hand: 
+Jack of Spades
+2 of Spades
+Ace of Clubs
+Queen of Hearts
+3 of Diamonds
+King of Diamonds
+5 of Spades
+Jack of Diamonds
+5 of Hearts
+Ace of Hearts
+
+Player2 deadWood: 57
+Player1 move: deck
+Player2 move: discardPile
+Player1 Discard: Queen of Spades
+Player2 Discard: Jack of Diamonds
+
+Round: 27
+Discard: 3 of Clubs
+2 of Hearts
+Jack of Clubs
+King of Spades
+4 of Hearts
+10 of Spades
+Ace of Spades
+9 of Clubs
+King of Hearts
+7 of Clubs
+9 of Hearts
+4 of Clubs
+Queen of Clubs
+7 of Diamonds
+King of Clubs
+3 of Hearts
+Ace of Diamonds
+5 of Clubs
+8 of Diamonds
+2 of Diamonds
+10 of Diamonds
+5 of Diamonds
+4 of Diamonds
+Queen of Spades
+Jack of Diamonds
+
+Deck: 4 of Spades
+6 of Clubs
+7 of Spades
+8 of Spades
+10 of Hearts
+7 of Hearts
+9 of Spades
+
+Player1 hand: 
+10 of Clubs
+8 of Hearts
+3 of Spades
+Queen of Diamonds
+8 of Clubs
+6 of Hearts
+9 of Diamonds
+6 of Spades
+6 of Diamonds
+2 of Clubs
+
+Player1 deadWood: 50
+Player2 hand: 
+Queen of Hearts
+King of Diamonds
+Ace of Clubs
+Ace of Hearts
+Jack of Spades
+5 of Hearts
+3 of Diamonds
+2 of Spades
+Jack of Hearts
+5 of Spades
+
+Player2 deadWood: 57
+Player1 move: deck
+Player2 move: deck
+Player1 Discard: 8 of Hearts
+Player2 Discard: 5 of Spades
+
+Round: 28
+Discard: 3 of Clubs
+2 of Hearts
+Jack of Clubs
+King of Spades
+4 of Hearts
+10 of Spades
+Ace of Spades
+9 of Clubs
+King of Hearts
+7 of Clubs
+9 of Hearts
+4 of Clubs
+Queen of Clubs
+7 of Diamonds
+King of Clubs
+3 of Hearts
+Ace of Diamonds
+5 of Clubs
+8 of Diamonds
+2 of Diamonds
+10 of Diamonds
+5 of Diamonds
+4 of Diamonds
+Queen of Spades
+Jack of Diamonds
+8 of Hearts
+5 of Spades
+
+Deck: 7 of Spades
+8 of Spades
+10 of Hearts
+7 of Hearts
+9 of Spades
+
+Player1 hand: 
+10 of Clubs
+8 of Clubs
+3 of Spades
+4 of Spades
+Queen of Diamonds
+2 of Clubs
+6 of Diamonds
+6 of Spades
+9 of Diamonds
+6 of Hearts
+
+Player1 deadWood: 46
+Player2 hand: 
+3 of Diamonds
+Jack of Hearts
+King of Diamonds
+Queen of Hearts
+Ace of Clubs
+5 of Hearts
+6 of Clubs
+Jack of Spades
+Ace of Hearts
+2 of Spades
+
+Player2 deadWood: 58
+Player1 move: discardPile
+Player2 move: deck
+Player1 Discard: 10 of Clubs
+Player2 Discard: Queen of Hearts
+
+Round: 29
+Discard: 2 of Hearts
+Jack of Clubs
+King of Spades
+4 of Hearts
+10 of Spades
+Ace of Spades
+9 of Clubs
+King of Hearts
+7 of Clubs
+9 of Hearts
+4 of Clubs
+Queen of Clubs
+7 of Diamonds
+King of Clubs
+3 of Hearts
+Ace of Diamonds
+5 of Clubs
+8 of Diamonds
+2 of Diamonds
+10 of Diamonds
+5 of Diamonds
+4 of Diamonds
+Queen of Spades
+Jack of Diamonds
+8 of Hearts
+5 of Spades
+10 of Clubs
+Queen of Hearts
+
+Deck: 8 of Spades
+10 of Hearts
+7 of Hearts
+9 of Spades
+
+Player1 hand: 
+3 of Spades
+3 of Clubs
+8 of Clubs
+9 of Diamonds
+4 of Spades
+6 of Diamonds
+Queen of Diamonds
+6 of Hearts
+2 of Clubs
+6 of Spades
+
+Player1 deadWood: 39
+Player2 hand: 
+Jack of Spades
+2 of Spades
+6 of Clubs
+5 of Hearts
+3 of Diamonds
+Ace of Hearts
+Ace of Clubs
+King of Diamonds
+7 of Spades
+Jack of Hearts
+
+Player2 deadWood: 55
+Player1 move: discardPile
+Player2 move: deck
+Player1 Discard: 2 of Hearts
+Player2 Discard: 6 of Clubs
+
+Round: 30
+Discard: Jack of Clubs
+King of Spades
+4 of Hearts
+10 of Spades
+Ace of Spades
+9 of Clubs
+King of Hearts
+7 of Clubs
+9 of Hearts
+4 of Clubs
+Queen of Clubs
+7 of Diamonds
+King of Clubs
+3 of Hearts
+Ace of Diamonds
+5 of Clubs
+8 of Diamonds
+2 of Diamonds
+10 of Diamonds
+5 of Diamonds
+4 of Diamonds
+Queen of Spades
+Jack of Diamonds
+8 of Hearts
+5 of Spades
+10 of Clubs
+Queen of Hearts
+2 of Hearts
+6 of Clubs
+
+Deck: 10 of Hearts
+7 of Hearts
+9 of Spades
+
+Player1 hand: 
+3 of Clubs
+9 of Diamonds
+2 of Clubs
+3 of Spades
+4 of Spades
+8 of Clubs
+6 of Spades
+Queen of Diamonds
+6 of Diamonds
+6 of Hearts
+
+Player1 deadWood: 39
+Player2 hand: 
+7 of Spades
+Jack of Hearts
+2 of Spades
+3 of Diamonds
+Ace of Clubs
+Jack of Spades
+5 of Hearts
+King of Diamonds
+Ace of Hearts
+8 of Spades
+
+Player2 deadWood: 57
+Player1 move: deck
+Player2 move: deck
+Player1 Discard: Queen of Diamonds
+Player2 Discard: Ace of Hearts
+
+Round: 31
+Discard: Jack of Clubs
+King of Spades
+4 of Hearts
+10 of Spades
+Ace of Spades
+9 of Clubs
+King of Hearts
+7 of Clubs
+9 of Hearts
+4 of Clubs
+Queen of Clubs
+7 of Diamonds
+King of Clubs
+3 of Hearts
+Ace of Diamonds
+5 of Clubs
+8 of Diamonds
+2 of Diamonds
+10 of Diamonds
+5 of Diamonds
+4 of Diamonds
+Queen of Spades
+Jack of Diamonds
+8 of Hearts
+5 of Spades
+10 of Clubs
+Queen of Hearts
+2 of Hearts
+6 of Clubs
+Queen of Diamonds
+Ace of Hearts
+
+Deck: 9 of Spades
+
+Player1 hand: 
+4 of Spades
+3 of Spades
+6 of Hearts
+9 of Diamonds
+6 of Diamonds
+3 of Clubs
+6 of Spades
+8 of Clubs
+10 of Hearts
+2 of Clubs
+
+Player1 deadWood: 39
+Player2 hand: 
+3 of Diamonds
+2 of Spades
+8 of Spades
+5 of Hearts
+7 of Spades
+Ace of Clubs
+Jack of Spades
+Jack of Hearts
+King of Diamonds
+7 of Hearts
+
+Player2 deadWood: 63
+Player1 move: deck
+Player2 move: deck
+Player1 Discard: 4 of Spades
+Draw
