@@ -371,166 +371,176 @@ public class MCsimulation {
 
 	}
 
-	public static void main(String[] args) {
-		
-		String s1; // player 1's last move 
-		String s2; // player 2's last move
-		String winner;
-		String knocker; // who was the one to knock
+    public static void main(String[] args) {
+	int winCount = 0;
+	int drawCount = 0;
+	for (int z = 0; z < 100; z++) {
+	    
+	    String s1; // player 1's last move 
+	    String s2; // player 2's last move
+	    String winner;
+	    String knocker; // who was the one to knock
 
-		Card discard;
-		Game game = new Game();
+	    Card discard;
+	    Game game = new Game();
 
-		// add one card to the discard pile
-		game.discardPile.addSpecificCard(game.deck.removeTopCard());
-		int count = 0; // number of rounds
+	    // add one card to the discard pile
+	    game.discardPile.addSpecificCard(game.deck.removeTopCard());
+	    int count = 0; // number of rounds
 
-		Player_Random player1 = new Player_Random(game.h1);
+	    Player_Random player1 = new Player_Random(game.h1);
 
-		// essentially acts as player 2
-		MCsimulation mc = new MCsimulation(game.h2, game.discardPile);
+	    // essentially acts as player 2
+	    MCsimulation mc = new MCsimulation(game.h2, game.discardPile);
 
-		/*long startTime = System.currentTimeMillis();
+	    /*long startTime = System.currentTimeMillis();
+	      long elapsedTime = 0L;
+	      int i = 0;
+	      System.out.println(mc);
+	      mc.updateKnownDeck();
+	      mc.makeDiscardChoices();
+	      System.out.println(mc.discardStats());
+	      while (elapsedTime < 10*1000) {
+	      mc.discard();
+	      elapsedTime = System.currentTimeMillis() - startTime;
+	      }
+	      System.out.println(mc.discardStats());
+	      System.out.println("Discard: " + mc.chooseDiscard());*/
+	    
+
+	    // take turns between player 1 and 2 until one of then knocks
+	    while (true) {
+
+		/*System.out.println("Round: " + count);
+		  System.out.println("Discard: " + game.discardPile.toString());
+		  System.out.println("Deck: " + game.deck.toString());
+
+		  System.out.println("Player1 hand: ");
+		  System.out.println(player1);
+		  System.out.println("Player1 deadWood: " + player1.hand.deadWood());
+		  System.out.println("Player2 hand: ");
+		  System.out.println(mc.myHand);
+		  System.out.println("Player2 deadWood: " + mc.myHand.deadWood());*/
+
+		// make Player 1's move
+		//player1.setTopOfDiscard(game.discardPile.peekBottomCard());
+		s1 = player1.makeMove();
+
+		if (s1.equals("deck")) {
+		    player1.draw(game.deck.removeTopCard());
+		}
+		if (s1.equals("discardPile")) {
+		    player1.draw(game.discardPile.removeBottomCard());
+		}
+		//System.out.println("Player1 move: " + s1);
+
+		// make Player 1's discard
+		discard = player1.discard();
+		game.discardPile.addSpecificCard(discard);
+		//System.out.println("Player1 Discard: " + discard);
+
+		game.h1 = player1.hand;
+
+		// check to see if the game should end
+		if (game.deck.size() <= 2) { 
+		    winner = game.endGame();
+		    knocker = "Deck";
+		    if (winner.equals("player2")) winCount++;
+		    if (winner.equals("Draw")) drawCount++;
+		    break;
+		}
+		if (player1.knock()) {
+		    winner = game.endGame();
+		    knocker = "player1";
+		    if (winner.equals("player2")) winCount++;
+		    if (winner.equals("Draw")) drawCount++;
+		    break;
+		}
+
+		// make Player 2's move
+		long startTime = System.currentTimeMillis();
 		long elapsedTime = 0L;
-		int i = 0;
-		System.out.println(mc);
+		while (elapsedTime < 5*1000) {
+		    mc.simulate();
+		    elapsedTime = System.currentTimeMillis() - startTime;
+		}
+
+		if (mc.dpScore > mc.dScore) {
+		    mc.myHand.draw(game.discardPile.removeBottomCard());
+		    s2 = "discardPile";
+		}
+		else {
+		    mc.myHand.draw(game.deck.removeTopCard());
+		    s2 = "deck";
+		    
+		}
+		//System.out.println("Player2 move: " + s2);
+
 		mc.updateKnownDeck();
-
 		mc.makeDiscardChoices();
-		System.out.println(mc.discardStats());
-		while (elapsedTime < 10*1000) {
-
-			mc.discard();
-			elapsedTime = System.currentTimeMillis() - startTime;
+		// make Player 2's discard
+		startTime = System.currentTimeMillis();
+		elapsedTime = 0L;
+		while (elapsedTime < 5*1000) {
+		    mc.discard();
+		    elapsedTime = System.currentTimeMillis() - startTime;
 		}
-		System.out.println(mc.discardStats());
-		System.out.println("Discard: " + mc.chooseDiscard());*/
-		
 
-		// take turns between player 1 and 2 until one of then knocks
-		while (true) {
+		discard = mc.chooseDiscard();
+		mc.myHand.discard(discard);
+		game.discardPile.addSpecificCard(discard);
+		//System.out.println("Player2 Discard: " + discard);
+		//System.out.print("\n");
+		count++;
 
-			System.out.println("Round: " + count);
-			System.out.println("Discard: " + game.discardPile.toString());
-			System.out.println("Deck: " + game.deck.toString());
+		game.h2 = mc.myHand;
 
-			System.out.println("Player1 hand: ");
-			System.out.println(player1);
-			System.out.println("Player1 deadWood: " + player1.hand.deadWood());
-			System.out.println("Player2 hand: ");
-			System.out.println(mc.myHand);
-			System.out.println("Player2 deadWood: " + mc.myHand.deadWood());
-
-			// make Player 1's move
-			//player1.setTopOfDiscard(game.discardPile.peekBottomCard());
-			s1 = player1.makeMove();
-
-			if (s1.equals("deck")) {
-				player1.draw(game.deck.removeTopCard());
-			}
-			if (s1.equals("discardPile")) {
-				player1.draw(game.discardPile.removeBottomCard());
-			}
-			System.out.println("Player1 move: " + s1);
-
-			// make Player 1's discard
-			discard = player1.discard();
-			game.discardPile.addSpecificCard(discard);
-			System.out.println("Player1 Discard: " + discard);
-
-			game.h1 = player1.hand;
-
-			// check to see if the game should end
-			if (game.deck.size() <= 2) { 
-				winner = game.endGame();
-				knocker = "Deck";
-				break;
-			}
-			if (player1.knock()) {
-				winner = game.endGame();
-				knocker = "player1";
-				break;
-			}
-
-			// make Player 2's move
-			long startTime = System.currentTimeMillis();
-			long elapsedTime = 0L;
-			while (elapsedTime < 5*1000) {
-				mc.simulate();
-				elapsedTime = System.currentTimeMillis() - startTime;
-			}
-
-			if (mc.dpScore > mc.dScore) {
-				mc.myHand.draw(game.discardPile.removeBottomCard());
-				s2 = "discardPile";
-			}
-			else {
-				mc.myHand.draw(game.deck.removeTopCard());
-				s2 = "deck";
-				
-			}
-			System.out.println("Player2 move: " + s2);
-
-			mc.updateKnownDeck();
-			mc.makeDiscardChoices();
-			// make Player 2's discard
-			startTime = System.currentTimeMillis();
-			elapsedTime = 0L;
-			while (elapsedTime < 5*1000) {
-				mc.discard();
-				elapsedTime = System.currentTimeMillis() - startTime;
-			}
-
-			discard = mc.chooseDiscard();
-			mc.myHand.discard(discard);
-			game.discardPile.addSpecificCard(discard);
-			System.out.println("Player2 Discard: " + discard);
-			System.out.print("\n");
-			count++;
-
-			game.h2 = mc.myHand;
-
-			// check to see if the game should end
-			if (game.deck.size() <= 2) { 
-				winner = game.endGame();
-				knocker = "Deck";
-				break;
-			}
-			if (mc.knock()) {
-				winner = game.endGame();
-				knocker = "player2";
-				break;
-			}
-
+		// check to see if the game should end
+		if (game.deck.size() <= 2) { 
+		    winner = game.endGame();
+		    knocker = "Deck";
+		    if (winner.equals("player2")) winCount++;
+		    if (winner.equals("Draw")) drawCount++;
+		    break;
 		}
-		//System.out.println("Player1 deadWood: " + player1.hand.deadWood());
-		//System.out.println("Player2 deadWood: " + player2.hand.deadWood());
+		if (mc.knock()) {
+		    winner = game.endGame();
+		    knocker = "player2";
+		    if (winner.equals("player2")) winCount++;
+		    if (winner.equals("Draw")) drawCount++;
+		    break;
+		}
 
-		System.out.println("Player1 final hand: " + game.h1);
-		System.out.println("Player2 final hand: " + game.h2);
+	    }
+	    //System.out.println("Player1 deadWood: " + player1.hand.deadWood());
+	    //System.out.println("Player2 deadWood: " + player2.hand.deadWood());
 
-		System.out.println("Player1 check: " + game.h1.deadWood());
-		System.out.println("Player2 check: " + game.h2.deadWood());
+	    /*System.out.println("Player1 final hand: " + game.h1);
+	      System.out.println("Player2 final hand: " + game.h2);
 
-		System.out.println("Knocker: " + knocker);
-		System.out.println("Winner: " + winner);
+	      System.out.println("Player1 check: " + game.h1.deadWood());
+	      System.out.println("Player2 check: " + game.h2.deadWood());
+
+	      System.out.println("Knocker: " + knocker);
+	      System.out.println("Winner: " + winner);*/
 
 
-		//Assumes I am player 2
-/*
-	    	// currently allow 30 seconds
-	    	while (elapsedTime < 2*60*1000) {
-	    		// branching factor to use is 10 currently
-	    		Node selected = mcts.select(); // just choose one branch from root
-	    		Node expanded = mcts.expand(selected); // try one of the children of the selected one
-	    		Node simulated = mcts.simulate(expanded); // simulate to the end of the game
-	    		mcts.backpropagate(simulated); // backpropagate
-	    	}
-	    	System.out.println(mcts);
-
-	    	discard = mcts.chooseBest(); 
-
-		} */
-		// System.out.println("bye");
+	    //Assumes I am player 2
+	    /*
+	      // currently allow 30 seconds
+	      while (elapsedTime < 2*60*1000) {
+	      // branching factor to use is 10 currently
+	      Node selected = mcts.select(); // just choose one branch from root
+	      Node expanded = mcts.expand(selected); // try one of the children of the selected one
+	      Node simulated = mcts.simulate(expanded); // simulate to the end of the game
+	      mcts.backpropagate(simulated); // backpropagate
+	      }
+	      System.out.println(mcts);
+	      discard = mcts.chooseBest(); 
+	      } */
+	    // System.out.println("bye");
+	    System.out.println("wins: " + winCount);
+	    System.out.println("draws: " + drawCount);
 	}
+    }
 }
