@@ -6,370 +6,369 @@ import java.util.*;
 import java.util.concurrent.ThreadLocalRandom;
 
 public class MCsimulation {
-	public Random rand = ThreadLocalRandom.current();
-	private Deck discardPile;
-	private Deck knownDeck;
-	private Hand myHand;
-	private int dpScore; // how many games have been won by playing discardPile
-	private int dScore; // how many games have been won by playing deck
-	private HashSet<Card> beliefState; // what cards I believe opponent might have
-	private int counter;
-	private int draw;
-	private HashMap<Card, Integer> discardChoices;
+    public Random rand = ThreadLocalRandom.current();
+    private Deck discardPile;
+    private Deck knownDeck;
+    private Hand myHand;
+    private int dpScore; // how many games have been won by playing discardPile
+    private int dScore; // how many games have been won by playing deck
+    private HashSet<Card> beliefState; // what cards I believe opponent might have
+    private int counter;
+    private int draw;
+    private HashMap<Card, Integer> discardChoices;
 
-	public MCsimulation(Hand myHand, Deck discardPile) {
-		this.myHand = myHand;
-		this.discardPile = discardPile;
-		dpScore = 0;
-		dScore = 0;
-		counter = 0;
-		draw = 0;
-		beliefState = new HashSet<Card>();
-		discardChoices = new HashMap<Card, Integer>();
+    public MCsimulation(Hand myHand, Deck discardPile) {
+	this.myHand = myHand;
+	this.discardPile = discardPile;
+	dpScore = 0;
+	dScore = 0;
+	counter = 0;
+	draw = 0;
+	beliefState = new HashSet<Card>();
+	discardChoices = new HashMap<Card, Integer>();
 
-		knownDeck = new Deck();
+	knownDeck = new Deck();
 
-		// edits deck to not include discard pile cards or my hands cards
-		for (Card c : myHand.allCards) {
-			knownDeck.removeSpecificCard(c);
-		}
-
-		for (Card c : discardPile.cards) {
-			knownDeck.removeSpecificCard(c);
-		}
-
-		for (Card c : knownDeck.cards) {
-			beliefState.add(c);
-		}
+	// edits deck to not include discard pile cards or my hands cards
+	for (Card c : myHand.allCards) {
+	    knownDeck.removeSpecificCard(c);
 	}
 
-	public String toString() {
-		String s = "";
-		s += "Hand: ";
-		s += myHand;
-		s += "Discard: ";
-		s += discardPile;
-		return s;
+	for (Card c : discardPile.cards) {
+	    knownDeck.removeSpecificCard(c);
 	}
 
-	public String stats() {
-		String s = "";
-		s += dpScore;
-		s += "\n";
-		s += dScore;
-		s += "\n";
-		s += counter;
-		s += "\n";
-		s += draw;
-		return s;
+	for (Card c : knownDeck.cards) {
+	    beliefState.add(c);
+	}
+    }
+
+    public String toString() {
+	String s = "";
+	s += "Hand: ";
+	s += myHand;
+	s += "Discard: ";
+	s += discardPile;
+	return s;
+    }
+
+    public String stats() {
+	String s = "";
+	s += dpScore;
+	s += "\n";
+	s += dScore;
+	s += "\n";
+	s += counter;
+	s += "\n";
+	s += draw;
+	return s;
+    }
+
+
+    // if b is true, means that the card was something discarded by the opp
+    // if b is false, means that the card was something picked up by the opp
+    public void updateBeliefs(Card card, boolean b) {
+    }
+
+    public String discardStats() {
+	String s = "";
+	s += discardChoices;
+	return s;
+    }
+
+    public void updateKnownDeck() {
+	for (Card c : myHand.allCards) {
+	    knownDeck.removeSpecificCard(c);
 	}
 
+	for (Card c : discardPile.cards) {
+	    knownDeck.removeSpecificCard(c);
+	}
+    }
 
-	// if b is true, means that the card was something discarded by the opp
-	// if b is false, means that the card was something picked up by the opp
-	public void updateBeliefs(Card card, boolean b) {
+    // see if this player could knock right now
+    public boolean knock() {
+	if (myHand.deadWood() <= 10) return true;
+	else return false;
+    }
+
+    public void makeDiscardChoices() {
+	discardChoices = new HashMap<Card, Integer>();
+	for (Card c : myHand.allCards) {
+	    discardChoices.put(c, 0);
+	}
+    }
+
+    public void discard(){
+	
+	/*myHand.shuffle(); // consider optimizing to not need a shuffle (choose
+	  // a random index instead)
+	  Card c = myHand.allCards.get(0);
+	  myHand.discard(c);
+	  return c;*/
+	Deck deckChild = new Deck(knownDeck); // copy of known deck
+	if (deckChild.size() < 10) return;
+	deckChild.shuffle();
+
+	Hand myHandCopy = new Hand(myHand);
+	Deck discardPileCopy = new Deck(discardPile);
+
+	// new hand for the opponent
+	Hand opponentHandChild = new Hand();
+	for (int i = 0; i < 10; i++) {
+	    opponentHandChild.draw(deckChild.removeTopCard());
 	}
 
-	public String discardStats() {
-		String s = "";
-		s += discardChoices;
-		return s;
+	Game gameChild = new Game(deckChild, opponentHandChild, myHandCopy, discardPileCopy);
+
+	Player_Random player1 = new Player_Random(opponentHandChild);
+	Player_Random player2 = new Player_Random(myHandCopy);
+
+	int count = 0;
+	String s1;
+	String s2;
+	String winner = "";
+	String knocker; // who was the one to knock
+	Card discard;
+	Card discardChoice = new Card(-1,-1);
+
+	String myMove = "";
+
+	// end result should be 
+	while (true) {
+
+	    // make Player 2's discard
+	    discard = player2.discard();
+	    if (count == 0) {
+		discardChoice = discard;
+	    }
+	    gameChild.discardPile.addSpecificCard(discard);
+	    count++;
+
+	    gameChild.h2 = player2.hand;
+
+	    count++;
+
+	    // check to see if the game should end
+	    if (gameChild.deck.size() <= 2) { 
+		winner = gameChild.endGame();
+		knocker = "Deck";
+		break;
+	    }
+	    if (player2.knock()) {
+		winner = gameChild.endGame();
+		knocker = "player2";
+		break;
+	    }
+
+	    if (winner.equals("player1")) {
+		if (myMove.equals("deck")) {
+		    dScore--;
+		}
+		if (myMove.equals("discardPile")) {
+		    dpScore--;
+		}
+	    }
+	    if (winner.equals("player2")) {
+		if (myMove.equals("deck")) {
+		    dScore++;
+		}
+		if (myMove.equals("discardPile")) {
+		    dpScore++;
+		}
+	    }
+	    if (winner.equals("Draw")) draw++;
+
+	    // make Player 1's move
+	    s1 = player1.makeMove();
+
+	    if (s1.equals("deck")) {
+		player1.draw(gameChild.deck.removeTopCard());
+	    }
+	    if (s1.equals("discardPile")) {
+		player1.draw(gameChild.discardPile.removeBottomCard());
+	    }
+
+	    // make Player 1's discard
+	    discard = player1.discard();
+	    gameChild.discardPile.addSpecificCard(discard);
+
+	    gameChild.h1 = player1.hand;
+
+	    // check to see if the game should end
+	    if (gameChild.deck.size() <= 2) { 
+		winner = gameChild.endGame();
+		knocker = "Deck";
+		break;
+	    }
+	    if (player1.knock()) {
+		winner = gameChild.endGame();
+		knocker = "player1";
+		break;
+	    }
+
+	    // make Player 2's move
+	    s2 = player2.makeMove();
+
+	    if (s2.equals("deck")) {
+		player2.draw(gameChild.deck.removeTopCard());
+	    }
+	    if (s2.equals("discardPile")) {
+		player2.draw(gameChild.discardPile.removeBottomCard());
+	    }
 	}
 
-	public void updateKnownDeck() {
-		for (Card c : myHand.allCards) {
-			knownDeck.removeSpecificCard(c);
+	if (winner.equals("player1")) {
+	    for (Card c : discardChoices.keySet()) {
+		if (c.rank == discardChoice.rank && c.suit == discardChoice.suit) {
+		    int k = discardChoices.get(c);
+		    k--;
+		    discardChoices.put(c, k);
 		}
-
-		for (Card c : discardPile.cards) {
-			knownDeck.removeSpecificCard(c);
+	    }
+	    
+	}
+	if (winner.equals("player2")) {
+	    for (Card c : discardChoices.keySet()) {
+		if (c.rank == discardChoice.rank && c.suit == discardChoice.suit) {
+		    int k = discardChoices.get(c);
+		    k++;
+		    discardChoices.put(c, k);
 		}
+	    }
 	}
 
-	// see if this player could knock right now
-	public boolean knock() {
-		if (myHand.deadWood() <= 10) return true;
-		else return false;
+    }
+
+    public Card chooseDiscard() {
+	Card b = new Card(-1,-1);
+	int best = Integer.MIN_VALUE;
+	for (Card c : discardChoices.keySet()) {
+	    if (discardChoices.get(c) > best) {
+		b = c;
+		best = discardChoices.get(c);
+	    }
+	}
+	return b;
+    }
+
+    // USE THIS TO CHOOSE A CHILD OF THE ROOT AND EXPLORE IT
+    public void simulate() {
+	counter++;
+	updateKnownDeck();
+
+	Deck deckChild = new Deck(knownDeck); // copy of known deck
+	deckChild.shuffle();
+
+	Hand myHandCopy = new Hand(myHand);
+	Deck discardPileCopy = new Deck(discardPile);
+
+	if (deckChild.size() <= 10) return;
+
+	// new hand for the opponent
+	Hand opponentHandChild = new Hand();
+	for (int i = 0; i < 10; i++) {
+	    opponentHandChild.draw(deckChild.removeTopCard());
 	}
 
-	public void makeDiscardChoices() {
-		discardChoices = new HashMap<Card, Integer>();
-		for (Card c : myHand.allCards) {
-			discardChoices.put(c, 0);
-		}
+	Game gameChild = new Game(deckChild, opponentHandChild, myHandCopy, discardPileCopy);
+
+	Player_Random player1 = new Player_Random(opponentHandChild);
+	Player_Random player2 = new Player_Random(myHandCopy);
+
+	int count = 0;
+	String s1;
+	String s2;
+	String winner;
+	String knocker; // who was the one to knock
+	Card discard;
+
+	String myMove = "";
+
+	// end result should be 
+	while (true) {
+
+	    // make Player 1's move
+	    s1 = player1.makeMove();
+
+	    if (s1.equals("deck")) {
+		player1.draw(gameChild.deck.removeTopCard());
+	    }
+	    if (s1.equals("discardPile")) {
+		player1.draw(gameChild.discardPile.removeBottomCard());
+	    }
+
+	    // make Player 1's discard
+	    discard = player1.discard();
+	    gameChild.discardPile.addSpecificCard(discard);
+
+	    gameChild.h1 = player1.hand;
+
+	    // check to see if the game should end
+	    if (gameChild.deck.size() <= 2) { 
+		winner = gameChild.endGame();
+		knocker = "Deck";
+		break;
+	    }
+	    if (player1.knock()) {
+		winner = gameChild.endGame();
+		knocker = "player1";
+		break;
+	    }
+
+	    // make Player 2's move
+	    s2 = player2.makeMove();
+
+	    if (count == 0) {
+		myMove = s2;
+	    }
+
+	    if (s2.equals("deck")) {
+		player2.draw(gameChild.deck.removeTopCard());
+	    }
+	    if (s2.equals("discardPile")) {
+		player2.draw(gameChild.discardPile.removeBottomCard());
+	    }
+
+	    // make Player 2's discard
+	    discard = player2.discard();
+	    gameChild.discardPile.addSpecificCard(discard);
+	    count++;
+
+	    gameChild.h2 = player2.hand;
+
+	    // check to see if the game should end
+	    if (gameChild.deck.size() <= 2) { 
+		winner = gameChild.endGame();
+		knocker = "Deck";
+		break;
+	    }
+	    if (player2.knock()) {
+		winner = gameChild.endGame();
+		knocker = "player2";
+		break;
+	    }
 	}
 
-	public void discard(){
-		
-		/*myHand.shuffle(); // consider optimizing to not need a shuffle (choose
-						// a random index instead)
-
-		Card c = myHand.allCards.get(0);
-		myHand.discard(c);
-		return c;*/
-		Deck deckChild = new Deck(knownDeck); // copy of known deck
-		if (deckChild.size() < 10) return;
-		deckChild.shuffle();
-
-		Hand myHandCopy = new Hand(myHand);
-		Deck discardPileCopy = new Deck(discardPile);
-
-		// new hand for the opponent
-		Hand opponentHandChild = new Hand();
-		for (int i = 0; i < 10; i++) {
-			opponentHandChild.draw(deckChild.removeTopCard());
-		}
-
-		Game gameChild = new Game(deckChild, opponentHandChild, myHandCopy, discardPileCopy);
-
-		Player_Random player1 = new Player_Random(opponentHandChild);
-		Player_Random player2 = new Player_Random(myHandCopy);
-
-		int count = 0;
-		String s1;
-		String s2;
-		String winner = "";
-		String knocker; // who was the one to knock
-		Card discard;
-		Card discardChoice = new Card(-1,-1);
-
-		String myMove = "";
-
-		// end result should be 
-		while (true) {
-
-			// make Player 2's discard
-			discard = player2.discard();
-			if (count == 0) {
-				discardChoice = discard;
-			}
-			gameChild.discardPile.addSpecificCard(discard);
-			count++;
-
-			gameChild.h2 = player2.hand;
-
-			count++;
-
-			// check to see if the game should end
-			if (gameChild.deck.size() <= 2) { 
-				winner = gameChild.endGame();
-				knocker = "Deck";
-				break;
-			}
-			if (player2.knock()) {
-				winner = gameChild.endGame();
-				knocker = "player2";
-				break;
-			}
-
-			if (winner.equals("player1")) {
-				if (myMove.equals("deck")) {
-					dScore--;
-				}
-				if (myMove.equals("discardPile")) {
-					dpScore--;
-				}
-			}	
-			if (winner.equals("player2")) {
-				if (myMove.equals("deck")) {
-					dScore++;
-				}
-				if (myMove.equals("discardPile")) {
-					dpScore++;
-				}
-			}
-			if (winner.equals("Draw")) draw++;
-
-			// make Player 1's move
-			s1 = player1.makeMove();
-
-			if (s1.equals("deck")) {
-				player1.draw(gameChild.deck.removeTopCard());
-			}
-			if (s1.equals("discardPile")) {
-				player1.draw(gameChild.discardPile.removeBottomCard());
-			}
-
-			// make Player 1's discard
-			discard = player1.discard();
-			gameChild.discardPile.addSpecificCard(discard);
-
-			gameChild.h1 = player1.hand;
-
-			// check to see if the game should end
-			if (gameChild.deck.size() <= 2) { 
-				winner = gameChild.endGame();
-				knocker = "Deck";
-				break;
-			}
-			if (player1.knock()) {
-				winner = gameChild.endGame();
-				knocker = "player1";
-				break;
-			}
-
-			// make Player 2's move
-			s2 = player2.makeMove();
-
-			if (s2.equals("deck")) {
-				player2.draw(gameChild.deck.removeTopCard());
-			}
-			if (s2.equals("discardPile")) {
-				player2.draw(gameChild.discardPile.removeBottomCard());
-			}
-		}
-
-		if (winner.equals("player1")) {
-			for (Card c : discardChoices.keySet()) {
-				if (c.rank == discardChoice.rank && c.suit == discardChoice.suit) {
-					int k = discardChoices.get(c);
-					k--;
-					discardChoices.put(c, k);
-				}
-			}
-			
-		}	
-		if (winner.equals("player2")) {
-			for (Card c : discardChoices.keySet()) {
-				if (c.rank == discardChoice.rank && c.suit == discardChoice.suit) {
-					int k = discardChoices.get(c);
-					k++;
-					discardChoices.put(c, k);
-				}
-			}
-		}
-
+	if (winner.equals("player1")) {
+	    if (myMove.equals("deck")) {
+		dScore--;
+	    }
+	    if (myMove.equals("discardPile")) {
+		dpScore--;
+	    }
 	}
-
-	public Card chooseDiscard() {
-		Card b = new Card(-1,-1);
-		int best = Integer.MIN_VALUE;
-		for (Card c : discardChoices.keySet()) {
-			if (discardChoices.get(c) > best) {
-				b = c;
-				best = discardChoices.get(c);
-			}
-		}
-		return b;
+	if (winner.equals("player2")) {
+	    if (myMove.equals("deck")) {
+		dScore++;
+	    }
+	    if (myMove.equals("discardPile")) {
+		dpScore++;
+	    }
 	}
+	if (winner.equals("Draw")) draw++;
 
-	// USE THIS TO CHOOSE A CHILD OF THE ROOT AND EXPLORE IT
-	public void simulate() {
-		counter++;
-		updateKnownDeck();
-
-		Deck deckChild = new Deck(knownDeck); // copy of known deck
-		deckChild.shuffle();
-
-		Hand myHandCopy = new Hand(myHand);
-		Deck discardPileCopy = new Deck(discardPile);
-
-		if (deckChild.size() < 10) return;
-
-		// new hand for the opponent
-		Hand opponentHandChild = new Hand();
-		for (int i = 0; i < 10; i++) {
-			opponentHandChild.draw(deckChild.removeTopCard());
-		}
-
-		Game gameChild = new Game(deckChild, opponentHandChild, myHandCopy, discardPileCopy);
-
-		Player_Random player1 = new Player_Random(opponentHandChild);
-		Player_Random player2 = new Player_Random(myHandCopy);
-
-		int count = 0;
-		String s1;
-		String s2;
-		String winner;
-		String knocker; // who was the one to knock
-		Card discard;
-
-		String myMove = "";
-
-		// end result should be 
-		while (true) {
-
-			// make Player 1's move
-			s1 = player1.makeMove();
-
-			if (s1.equals("deck")) {
-				player1.draw(gameChild.deck.removeTopCard());
-			}
-			if (s1.equals("discardPile")) {
-				player1.draw(gameChild.discardPile.removeBottomCard());
-			}
-
-			// make Player 1's discard
-			discard = player1.discard();
-			gameChild.discardPile.addSpecificCard(discard);
-
-			gameChild.h1 = player1.hand;
-
-			// check to see if the game should end
-			if (gameChild.deck.size() <= 2) { 
-				winner = gameChild.endGame();
-				knocker = "Deck";
-				break;
-			}
-			if (player1.knock()) {
-				winner = gameChild.endGame();
-				knocker = "player1";
-				break;
-			}
-
-			// make Player 2's move
-			s2 = player2.makeMove();
-
-			if (count == 0) {
-				myMove = s2;
-			}
-
-			if (s2.equals("deck")) {
-				player2.draw(gameChild.deck.removeTopCard());
-			}
-			if (s2.equals("discardPile")) {
-				player2.draw(gameChild.discardPile.removeBottomCard());
-			}
-
-			// make Player 2's discard
-			discard = player2.discard();
-			gameChild.discardPile.addSpecificCard(discard);
-			count++;
-
-			gameChild.h2 = player2.hand;
-
-			// check to see if the game should end
-			if (gameChild.deck.size() <= 2) { 
-				winner = gameChild.endGame();
-				knocker = "Deck";
-				break;
-			}
-			if (player2.knock()) {
-				winner = gameChild.endGame();
-				knocker = "player2";
-				break;
-			}
-		}
-
-		if (winner.equals("player1")) {
-			if (myMove.equals("deck")) {
-				dScore--;
-			}
-			if (myMove.equals("discardPile")) {
-				dpScore--;
-			}
-		}	
-		if (winner.equals("player2")) {
-			if (myMove.equals("deck")) {
-				dScore++;
-			}
-			if (myMove.equals("discardPile")) {
-				dpScore++;
-			}
-		}
-		if (winner.equals("Draw")) draw++;
-
-	}
+    }
 
     public static void main(String[] args) {
 	int winCount = 0;
@@ -388,7 +387,7 @@ public class MCsimulation {
 	    game.discardPile.addSpecificCard(game.deck.removeTopCard());
 	    int count = 0; // number of rounds
 
-	    Player_Random player1 = new Player_Random(game.h1);
+	    Player_Good player1 = new Player_Good(game.h1);
 
 	    // essentially acts as player 2
 	    MCsimulation mc = new MCsimulation(game.h2, game.discardPile);
@@ -423,7 +422,7 @@ public class MCsimulation {
 		  System.out.println("Player2 deadWood: " + mc.myHand.deadWood());*/
 
 		// make Player 1's move
-		//player1.setTopOfDiscard(game.discardPile.peekBottomCard());
+		player1.setTopOfDiscard(game.discardPile.peekBottomCard());
 		s1 = player1.makeMove();
 
 		if (s1.equals("deck")) {
@@ -460,7 +459,7 @@ public class MCsimulation {
 		// make Player 2's move
 		long startTime = System.currentTimeMillis();
 		long elapsedTime = 0L;
-		while (elapsedTime < 5*1000) {
+		while (elapsedTime < 2.5*100) {
 		    mc.simulate();
 		    elapsedTime = System.currentTimeMillis() - startTime;
 		}
@@ -481,7 +480,7 @@ public class MCsimulation {
 		// make Player 2's discard
 		startTime = System.currentTimeMillis();
 		elapsedTime = 0L;
-		while (elapsedTime < 5*1000) {
+		while (elapsedTime < 2.5*100) {
 		    mc.discard();
 		    elapsedTime = System.currentTimeMillis() - startTime;
 		}

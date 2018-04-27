@@ -39,6 +39,7 @@ public class Mcts {
 	    p.removeSpecificCard(c);
 	for (Card c : discardPile.cards)
 	    p.removeSpecificCard(c);
+	p.removeSpecificCard(discard);
 
 	chanceNode.possibleDeck = p;
 	chanceNode.discardPile = discardPile;
@@ -62,7 +63,7 @@ public class Mcts {
     public void search() {
 	// does one step of the search
 	// first, determine a game state from the chance node
-	// each step will featuer a different determinzation. This 
+	// each step will feature a different determinzation. This 
 	// may change what is possible, but hopefully it will not be 
 	// too inefficient. 
 	Node chanceNode = root.children.get(0);
@@ -92,9 +93,25 @@ public class Mcts {
 	for (int i = 0; i < 10; i++) {
 	    oppHand.draw(deck.removeTopCard());
 	}
+
+	// add 22 children based on possible moves
+
+	// 11 children for deck option
+	String s = "deck";
+	Card topOfDeck = deck.peekTopCard();
+	for (int i = 0; i < 11; i++) {
+	    Hand h = new Hand(chanceNode.h2);
+	    Card c = new Card(topOfDeck.rank, topOfDeck.suit);
+	    h.draw(c);
+	    Card discard = h.allCards.get(i);
+	}
+	for (Node n : chanceNode.children) {
+
+	}
     }
 
-    public void choose(Node c) {
+    public void choose() {
+	Node current = root;
 
     }
 
@@ -115,8 +132,8 @@ public class Mcts {
 	
 	// which kind of node is this?
 	private boolean p1; // player 1's move
-private boolean chance; // chance node
-private boolean p2; // player 2's move
+	private boolean chance; // chance node
+	private boolean p2; // player 2's move
 
 	// keeping track of simulation information 
 	private int visits; // how many times has this node been visited
@@ -149,6 +166,20 @@ private boolean p2; // player 2's move
 	    possibleDeck = null;
 	    parent = null;
 	    children = new ArrayList<Node>();
+	}
+
+	public boolean p2equals(Node that) {
+	    if (!this.p2 || !that.p2) return false;
+	    if (!this.move.equals(that.move)) return false;
+	    if (!this.discard.equals(that.discard)) return false;
+	    return true;
+	}
+
+	public boolean p1equals(Node that) {
+	    if (!this.p1 || !that.p1) return false;
+	    if (!this.move.equals(that.move)) return false;
+	    if (!this.discard.equals(that.discard)) return false;
+	    return true;
 	}
 
 	public String toString() {
@@ -193,6 +224,7 @@ private boolean p2; // player 2's move
 	System.out.println(test);
 	System.out.println(test.root.children.get(0));
 	test.search();
+	System.out.println("my hand: " + game.h2);
 	System.out.println("determined deck: " + test.deck);
 	System.out.println("determined opp hand: " + test.oppHand);
 	System.out.println("actual deck: " + game.deck);
