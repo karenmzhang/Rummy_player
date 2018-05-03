@@ -358,10 +358,17 @@ public class Mcts {
         while (true) {
 	    count++;
 
+	    if (deckCopy.cards.size()<= 0){
+		winner = "Draw";
+		break;
+	    }
+
+	    if (dpCopy.cards.size() > 0){
 	    player2.setTopOfDiscard(dpCopy.peekBottomCard());
+	    }
             s2 = player2.makeMove();
 
-            if (s2.equals("deck")) {
+            if (s2.equals("deck") || dpCopy.cards.size() <= 0) {
 		player2.draw(deckCopy.removeTopCard());
             }
             if (s2.equals("discardPile")) {
@@ -572,7 +579,7 @@ public class Mcts {
 
 	int winCount = 0;
 	int drawCount = 0;
-	//for (int z = 0; z < 100; z++) {
+	for (int z = 0; z < 10000; z++) {
 	
 	String s1; // player 1's last move 
 	String s2; // player 2's last move
@@ -586,9 +593,9 @@ public class Mcts {
 	game.discardPile.addSpecificCard(game.deck.removeTopCard());
 	int count = 0; // number of rounds
 
-	Player_Random player1 = new Player_Random(game.h1);
+	Player_Good player1 = new Player_Good(game.h1);
 
-	System.out.println("Round: " + count);
+	/*	System.out.println("Round: " + count);
 	System.out.println("Discard: " + game.discardPile.toString());
 	System.out.println("Deck: " + game.deck.toString());
 
@@ -598,9 +605,9 @@ public class Mcts {
 	System.out.println("Player2 hand: ");
 	System.out.println(game.h2);
 	System.out.println("Player2 deadWood: " + game.h2.deadWood());
-
+	*/
 	// make Player 1's move
-	//player1.setTopOfDiscard(game.discardPile.peekBottomCard());
+	player1.setTopOfDiscard(game.discardPile.peekBottomCard());
 	s1 = player1.makeMove();
 
 	if (s1.equals("deck")) {
@@ -677,7 +684,7 @@ public class Mcts {
 	    }
 
 	    // make Player 1's move
-	    //player1.setTopOfDiscard(game.discardPile.peekBottomCard());
+	    player1.setTopOfDiscard(game.discardPile.peekBottomCard());
 	    s1 = player1.makeMove();
 
 	    if (s1.equals("deck")) {
@@ -711,7 +718,7 @@ public class Mcts {
 		break;
 	    }
 
-	    System.out.println("Round: " + count);
+	    /*	    System.out.println("Round: " + count);
 	    System.out.println("Discard: " + game.discardPile.toString());
 	    System.out.println("Deck: " + game.deck.toString());
 
@@ -721,12 +728,11 @@ public class Mcts {
 	    System.out.println("Player2 hand: ");
 	    System.out.println(game.h2);
 	    System.out.println("Player2 deadWood: " + game.h2.deadWood());
-
+	    */
 	} // end of while loop
-
+	}
 	System.out.println("wins: " + winCount);
 	System.out.println("draws: " + drawCount);
-	//}
 	
 
     }
