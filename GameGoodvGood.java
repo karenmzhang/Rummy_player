@@ -9,13 +9,16 @@ public class GameGoodvGood {
     public static void main(String[] args) {
 	/********************************************************************/
 	// Player_Good vs Player_Good
-	int[] winners = new int[1000];
+	//	int[] winners = new int[1000];
 	// if player 2 wins game i, then set winners[i] = 1
 	// if player 1 wins, set winners[i] = -1
-	int[] pointDifference = new int[1000];
+	//int[] pointDifference = new int[1000];
 	// records player1 deadwood = player2 deadwood (negative means player2 did better)
+	int p2wins = 0;
+	int draws = 0;
 
-	for (int z = 0; z < 1000; z++) {
+
+	for (int z = 0; z < 10000; z++) {
 
 	    Game game = new Game();
 
@@ -35,7 +38,10 @@ public class GameGoodvGood {
 
 	    // take turns between player 1 and 2 until one of then knocks                                    
 	    while (true) {
-
+		if (count > 50) {
+		    winner = "Draw";
+		    break;
+		}
 		// make Player 1's move                                                                  
 		player1.setTopOfDiscard(game.discardPile.peekBottomCard());
 		s1 = player1.makeMove();
@@ -96,16 +102,25 @@ public class GameGoodvGood {
 		}
 
 	    }
-	    if (winner.equals("Draw"))
+	    /*if (winner.equals("Draw"))
 		winners[z] = 0;
 	    if (winner.equals("player1"))
 		winners[z] = -1;
 	    if (winner.equals("player2"))
 		winners[z] = 1;
-	    pointDifference[z] = game.h1.deadWood() - game.h2.deadWood();
+		pointDifference[z] = game.h1.deadWood() - game.h2.deadWood();*/
+	    if (winner.equals("player2")) {
+		p2wins++;
+	    }
+	    if (winner.equals("Draw")) {
+		draws++;
+	    }
+	    System.out.println("wins: " + p2wins);
+	    System.out.println("draws: " + draws);
+
 	}
 
-	int winCount = 0;
+	/*int winCount = 0;
 	System.out.println("Winners: [");
 	for (int y = 0; y < 1000; y++) {
 	    //System.out.print(winners[y]);
@@ -124,8 +139,7 @@ public class GameGoodvGood {
 	}
 	System.out.println(pointCount);
 	System.out.println("]");
-
-
+	*/
 
     }
 }

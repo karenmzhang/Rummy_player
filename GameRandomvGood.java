@@ -10,13 +10,15 @@ public class GameRandomvGood {
 	/********************************************************************/
 	// Player_Good vs Player_Good
                 
-	int p1Win = 0;
+	/*	int p1Win = 0;
 	int p2Win = 0;
 	int draw = 0;
 	int[] pointDifference = new int[1000];
-	// records player1 deadwood = player2 deadwood (negative means player2 did better)
+	// records player1 deadwood = player2 deadwood (negative means player2 did better)*/
+	int p2wins = 0;
+	int draws = 0;
 
-	for (int z = 0; z < 1000; z++) {
+	for (int z = 0; z < 10000; z++) {
 
 	    Game game = new Game();
 
@@ -98,19 +100,19 @@ public class GameRandomvGood {
 
 	    }
 	    if (winner.equals("Draw"))
-		draw++;
-	    if (winner.equals("player1"))
-		p1Win++;
+		draws++;
+	    //if (winner.equals("player1"))
+	    //	p1Win++;
 	    if (winner.equals("player2"))
-		p2Win++;
-	    pointDifference[z] = game.h1.deadWood() - game.h2.deadWood();
+		p2wins++;
+
+	    System.out.println("good wins: " + p2wins);
+	    System.out.println("draws: " + draws); 
+	    //pointDifference[z] = game.h1.deadWood() - game.h2.deadWood();
 	}
 
-	System.out.println(p1Win);
-	System.out.println(draw);
-	System.out.println(p2Win);
-
-	int pointCount = 0;
+	//System.out.println(p1Win);
+	/*	int pointCount = 0;
 	System.out.println("Points: [");
 	for (int y = 0; y < 1000; y++) {
 	    //System.out.print(pointDifference[y]);
@@ -118,7 +120,7 @@ public class GameRandomvGood {
 	    pointCount += pointDifference[y];
 	}
 	System.out.println(pointCount);
-	System.out.println("]");
+	System.out.println("]");*/
 
 
 
