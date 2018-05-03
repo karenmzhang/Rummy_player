@@ -4,17 +4,17 @@ Coordinate a game between two players
 import java.util.*;
 import java.util.concurrent.ThreadLocalRandom;
 
-public class GameRandomvGood {
+public class GameRandomvRandom {
 
     public static void main(String[] args) {
 	/********************************************************************/
 	// Player_Good vs Player_Good
                 
-	/*	int p1Win = 0;
-	int p2Win = 0;
-	int draw = 0;
-	int[] pointDifference = new int[1000];
-	// records player1 deadwood = player2 deadwood (negative means player2 did better)*/
+	/*int p1Win = 0;
+	  int p2Win = 0;
+	  int draw = 0;
+	  int[] pointDifference = new int[1000];
+	  // records player1 deadwood = player2 deadwood (negative means player2 did better)*/
 	int p2wins = 0;
 	int draws = 0;
 
@@ -22,7 +22,7 @@ public class GameRandomvGood {
 
 	    Game game = new Game();
 
-	    Player_Good player1 = new Player_Good(game.h1);
+	    Player_Random player1 = new Player_Random(game.h1);
 	    Player_Random player2 = new Player_Random(game.h2);
 
 	    String s1; // player 1's last move                                                               
@@ -40,7 +40,7 @@ public class GameRandomvGood {
 	    while (true) {
 
 		// make Player 1's move                                                                  
-		player1.setTopOfDiscard(game.discardPile.peekBottomCard());
+		//player1.setTopOfDiscard(game.discardPile.peekBottomCard());
 		s1 = player1.makeMove();
 
 		if (s1.equals("deck")) {
@@ -69,7 +69,7 @@ public class GameRandomvGood {
 		}
 
 		// make Player 2's move                                                                  
-		//player2.setTopOfDiscard(game.discardPile.peekBottomCard());
+		// player2.setTopOfDiscard(game.discardPile.peekBottomCard());
 		s2 = player2.makeMove();
 
 		if (s2.equals("deck")) {
@@ -102,7 +102,7 @@ public class GameRandomvGood {
 	    if (winner.equals("Draw"))
 		draws++;
 	    //if (winner.equals("player1"))
-	    //	p1Win++;
+	    //p1Win++;
 	    if (winner.equals("player2"))
 		p2wins++;
 
@@ -112,15 +112,15 @@ public class GameRandomvGood {
 	}
 
 	//System.out.println(p1Win);
-	/*	int pointCount = 0;
-	System.out.println("Points: [");
-	for (int y = 0; y < 1000; y++) {
-	    //System.out.print(pointDifference[y]);
-	    //System.out.print(", ");
-	    pointCount += pointDifference[y];
-	}
-	System.out.println(pointCount);
-	System.out.println("]");*/
+	/*int pointCount = 0;
+	  System.out.println("Points: [");
+	  for (int y = 0; y < 1000; y++) {
+	      //System.out.print(pointDifference[y]);
+	          //System.out.print(", ");
+		      pointCount += pointDifference[y];
+		      }
+		      System.out.println(pointCount);
+		      System.out.println("]");*/
 
 
 

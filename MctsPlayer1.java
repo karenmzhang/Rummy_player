@@ -5,7 +5,7 @@ Monte Carlo Tree Search using UCT
 import java.util.*;
 import java.util.concurrent.ThreadLocalRandom;
 
-public class Mcts {
+public class MctsPlayer1 {
     private final static double UCT_CONSTANT = Math.sqrt(2); // for UCT calculation
     private final static int maxDeadWood = 110;
 
@@ -20,19 +20,19 @@ public class Mcts {
 
     // this will set up the root and the "chance node" from which all future
     // exploration will branch
-    public Mcts(Hand myHand, String player1move, Deck discardPile) {
+    public MctsPlayer1(Hand myHand, Deck discardPile) {
 	// known information
 	root = new Node();
 	root.p1 = true;
-	root.move = player1move;
+	root.move = null;
 	root.discard = discardPile.peekBottomCard();
 	root.discardPile = discardPile;
-	root.h2 = myHand;
+	root.h1 = myHand;
 	
 	// create the chance node from the root
 	Node chanceNode = new Node();
 	chanceNode.chance = true;
-	chanceNode.h2 = myHand;
+	chanceNode.h1 = myHand;
 
 	// make a list of possible cards still in the deck
 	Deck p = new Deck(); 
@@ -114,12 +114,12 @@ public class Mcts {
 	return bestNode.move;
     }
 
-    public Card makeDiscard(Hand actualHand) {
+    public Card makeDiscard() {
 	double best = 0;
 	Node chanceNode = root.children.get(0);
 	Node bestNode = chanceNode.children.get(0);
 	for (Node c : chanceNode.children) {
-	    if ((double)c.wins/((double)c.visits) > 0 && actualHand.contains(c.discard)) {
+	    if ((double)c.wins/((double)c.visits) > 0) {
 		best = (double)c.wins/((double)c.visits);
 		bestNode = c;
 	    }
@@ -127,14 +127,13 @@ public class Mcts {
 	return bestNode.discard;
     }
 
-
     public void determine(Node chanceNode) {
 	//System.out.println("determine");
 	this.deck = new Deck(chanceNode.possibleDeck);
 	if (deck.size() < 10) return;
 	deck.shuffle();
 
-	this.myHand = new Hand(chanceNode.h2);
+	this.myHand = new Hand(chanceNode.h1);
 	this.discardPile = new Deck(chanceNode.discardPile);
 
 	// new hand for the opponent
@@ -148,17 +147,17 @@ public class Mcts {
 	// 11 children for deck option
 	String s = "deck";
 	Card topOfDeck = deck.peekTopCard();
-	Hand h = new Hand(chanceNode.h2);
+	Hand h = new Hand(chanceNode.h1);
 	Card c = new Card(topOfDeck.rank, topOfDeck.suit);
 	h.draw(c);
 	for (int i = 0; i < h.allCards.size(); i++) {
 	    Node newNode = new Node();
-	    newNode.p2 = true;
+	    newNode.p1 = true;
 	    newNode.move = s;
 	    newNode.discard = h.allCards.get(i);
-	    newNode.h2 = new Hand(h);
-	    newNode.h2.discard(newNode.discard);
-	    newNode.h1 = oppHand;
+	    newNode.h1 = new Hand(h);
+	    newNode.h1.discard(newNode.discard);
+	    newNode.h2 = oppHand;
 	    if (!chanceNode.childrenContains(newNode)) {
 		newNode.parent = chanceNode;
 		chanceNode.children.add(newNode);
@@ -168,17 +167,17 @@ public class Mcts {
 	// 11 children for discardPile option
 	String s1 = "discardPile";
 	Card dp = discardPile.peekBottomCard();
-	Hand ha = new Hand(chanceNode.h2);
+	Hand ha = new Hand(chanceNode.h1);
 	Card c1 = new Card(dp.rank, dp.suit);
 	ha.draw(c1);
 	for (int i = 0; i < ha.allCards.size(); i++) {
 	    Node newNode = new Node();
-	    newNode.p2 = true;
+	    newNode.p1 = true;
 	    newNode.move = s1;
 	    newNode.discard = ha.allCards.get(i);
-	    newNode.h2 = new Hand(ha);
-	    newNode.h2.discard(newNode.discard);
-	    newNode.h1 = oppHand;
+	    newNode.h1 = new Hand(ha);
+	    newNode.h1.discard(newNode.discard);
+	    newNode.h2 = oppHand;
 	    if (!chanceNode.childrenContains(newNode)) {
 		newNode.parent = chanceNode;
 		chanceNode.children.add(newNode);
@@ -336,7 +335,7 @@ public class Mcts {
     }
 
     public int simulate(Node expanded) {
-	// returns 1 for player2 win, 0 for draw or player2 loss
+	// returns 1 for when I win, 0 for draw or if I lose
 	//System.out.println("simulate");
 	Deck deckCopy = new Deck(deck);
 	Deck dpCopy = new Deck(discardPile);
@@ -425,11 +424,11 @@ public class Mcts {
 	}
 
 	if (expanded.p1) {
-	    if (winner.equals("player2")) return 1;
+	    if (winner.equals("player1")) return 1;
 	    return 0;
 	}
 	else {
-	    if (winner.equals("player1")) return 1;
+	    if (winner.equals("player2")) return 1;
 	    return 0;
 	}
     }
@@ -545,22 +544,22 @@ public class Mcts {
 	/*int arg = args[0];
 	    Game game = new Game();
 	      // add one card to the discard pile
-	      game.discardPile.addSpecificCard(game.deck.removeTopCard());
-	      int count = 0; // number of rounds
-	      Player_Random player1 = new Player_Random(game.h1);
-	      String s1 = player1.makeMove();
-	      if (s1.equals("deck")) {
+	        game.discardPile.addSpecificCard(game.deck.removeTopCard());
+		  int count = 0; // number of rounds
+		  Player_Random player1 = new Player_Random(game.h1);
+		  String s1 = player1.makeMove();
+		  if (s1.equals("deck")) {
 	player1.draw(game.deck.removeTopCard());
     }
-	      if (s1.equals("discardPile")) {
+		  if (s1.equals("discardPile")) {
 	player1.draw(game.discardPile.removeBottomCard());
     }
-	      Card discard = player1.discard();
-	      game.discardPile.addSpecificCard(discard);
-	      Mcts test = new Mcts(game.h2, s1, game.discardPile);
-	      //System.out.println(test);
-	      //System.out.println(test.root.children.get(0));
-	      for (int i = 0; i < arg; i++) {
+		  Card discard = player1.discard();
+		  game.discardPile.addSpecificCard(discard);
+		  Mcts test = new Mcts(game.h2, s1, game.discardPile);
+		  //System.out.println(test);
+		  //System.out.println(test.root.children.get(0));
+		  for (int i = 0; i < arg; i++) {
 	test.search();
     }*/
 	/*System.out.println("my hand: " + game.h2);
@@ -578,7 +577,7 @@ public class Mcts {
 
 	int winCount = 0;
 	int drawCount = 0;
-	for (int z = 0; z < 1; z++) {
+	for (int z = 0; z < 100; z++) {
 	    
 	    String s1; // player 1's last move 
 	    String s2; // player 2's last move
@@ -592,36 +591,36 @@ public class Mcts {
 	    game.discardPile.addSpecificCard(game.deck.removeTopCard());
 	    int count = 0; // number of rounds
 
-	    Player_Good player1 = new Player_Good(game.h1);
+	    Player_Good player2 = new Player_Good(game.h2);
 
-	    System.out.println("Round: " + count);
-	    System.out.println("Discard: " + game.discardPile.toString());
-	    System.out.println("Deck: " + game.deck.toString());
-	    System.out.println("Player1 hand: ");
-	    System.out.println(player1);
-	    System.out.println("Player1 deadWood: " + player1.hand.deadWood());
-	    System.out.println("Player2 hand: ");
-	    System.out.println(game.h2);
-	    System.out.println("Player2 deadWood: " + game.h2.deadWood());
-	    
+	    /*System.out.println("Round: " + count);
+	      System.out.println("Discard: " + game.discardPile.toString());
+	      System.out.println("Deck: " + game.deck.toString());
+	      System.out.println("Player1 hand: ");
+	      System.out.println(player1);
+	      System.out.println("Player1 deadWood: " + player1.hand.deadWood());
+	      System.out.println("Player2 hand: ");
+	      System.out.println(game.h2);
+	      System.out.println("Player2 deadWood: " + game.h2.deadWood());
+	    */
 	    // make Player 1's move
-	    player1.setTopOfDiscard(game.discardPile.peekBottomCard());
-	    s1 = player1.makeMove();
+	    /*player1.setTopOfDiscard(game.discardPile.peekBottomCard());
+	      s1 = player1.makeMove();
 
-	    if (s1.equals("deck")) {
-		player1.draw(game.deck.removeTopCard());
-	    }
-	    if (s1.equals("discardPile")) {
-		player1.draw(game.discardPile.removeBottomCard());
-	    }
-	    System.out.println("Player1 move: " + s1);
+	      if (s1.equals("deck")) {
+	          player1.draw(game.deck.removeTopCard());
+		  }
+		  if (s1.equals("discardPile")) {
+		      player1.draw(game.discardPile.removeBottomCard());
+		      }
+		      //System.out.println("Player1 move: " + s1);
 
-	    // make Player 1's discard
-	    discard = player1.discard();
-	    game.discardPile.addSpecificCard(discard);
-	    System.out.println("Player1 Discard: " + discard);
+		      // make Player 1's discard
+		      discard = player1.discard();
+		      game.discardPile.addSpecificCard(discard);
+		      //System.out.println("Player1 Discard: " + discard);
 
-	    game.h1 = player1.hand;
+		      game.h1 = player1.hand;*/
 
 	    // essentially acts as player 2
 
@@ -640,91 +639,91 @@ public class Mcts {
 
 	    // take turns between player 1 and 2 until one of then knocks
 	    while (true) {
-		Mcts mc = new Mcts(game.h2, s1, game.discardPile);
+		MctsPlayer1 mc = new MctsPlayer1(game.h1, game.discardPile);
 
-		// make Player 2's move
+		// make Player 1's move
 		long startTime = System.currentTimeMillis();
 		long elapsedTime = 0L;
-		while (elapsedTime < 2.5*100) {
+		while (elapsedTime < 0.1*100) {
 		    mc.search();
 		    elapsedTime = System.currentTimeMillis() - startTime;
 		}
-		s2 = mc.makeMove();
-		if (s2.equals("deck")) {
-		    game.h2.draw(game.deck.removeTopCard());
+		s1 = mc.makeMove();
+		if (s1.equals("deck")) {
+		    game.h1.draw(game.deck.removeTopCard());
 		}
-		if (s2.equals("discardPile")) {
-		    game.h2.draw(game.discardPile.removeBottomCard());
+		if (s1.equals("discardPile")) {
+		    game.h1.draw(game.discardPile.removeBottomCard());
 		}
 
-		discard = mc.makeDiscard(game.h2);
-		game.h2.discard(discard);
+		discard = mc.makeDiscard();
+		game.h1.discard(discard);
 		game.discardPile.addSpecificCard(discard);
-		System.out.println("Player2 Discard: " + discard);
-		System.out.print("\n");
+		//System.out.println("Player2 Discard: " + discard);
+		//System.out.print("\n");
 		count++;
 
 		// check to see if the game should end
 		if (game.deck.size() <= 2) { 
 		    winner = game.endGame();
 		    knocker = "Deck";
-		    if (winner.equals("player2")) winCount++;
+		    if (winner.equals("player1")) winCount++;
 		    if (winner.equals("Draw")) drawCount++;
 		    break;
 		}
-		if (game.h2.deadWood() <= 10) {
+		if (game.h1.deadWood() <= 10) {
 		    winner = game.endGame();
-		    knocker = "player2";
-		    if (winner.equals("player2")) winCount++;
+		    knocker = "player1";
+		    if (winner.equals("player1")) winCount++;
 		    if (winner.equals("Draw")) drawCount++;
 		    break;
 		}
 
-		// make Player 1's move
-		player1.setTopOfDiscard(game.discardPile.peekBottomCard());
-		s1 = player1.makeMove();
+		// make Player 2's move
+		player2.setTopOfDiscard(game.discardPile.peekBottomCard());
+		s2 = player2.makeMove();
 
-		if (s1.equals("deck")) {
-		    player1.draw(game.deck.removeTopCard());
+		if (s2.equals("deck")) {
+		    player2.draw(game.deck.removeTopCard());
 		}
-		if (s1.equals("discardPile")) {
-		    player1.draw(game.discardPile.removeBottomCard());
+		if (s2.equals("discardPile")) {
+		    player2.draw(game.discardPile.removeBottomCard());
 		}
-		System.out.println("Player1 move: " + s1);
+		//System.out.println("Player1 move: " + s1);
 
 		// make Player 1's discard
-		discard = player1.discard();
+		discard = player2.discard();
 		game.discardPile.addSpecificCard(discard);
-		System.out.println("Player1 Discard: " + discard);
+		//System.out.println("Player1 Discard: " + discard);
 
-		game.h1 = player1.hand;
+		game.h2 = player2.hand;
 
 		// check to see if the game should end
 		if (game.deck.size() <= 2) { 
 		    winner = game.endGame();
 		    knocker = "Deck";
-		    if (winner.equals("player2")) winCount++;
+		    if (winner.equals("player1")) winCount++;
 		    if (winner.equals("Draw")) drawCount++;
 		    break;
 		}
-		if (player1.knock()) {
+		if (player2.knock()) {
 		    winner = game.endGame();
-		    knocker = "player1";
-		    if (winner.equals("player2")) winCount++;
+		    knocker = "player2";
+		    if (winner.equals("player1")) winCount++;
 		    if (winner.equals("Draw")) drawCount++;
 		    break;
 		}
 
-		System.out.println("Round: " + count);
-		System.out.println("Discard: " + game.discardPile.toString());
-		System.out.println("Deck: " + game.deck.toString());
-		System.out.println("Player1 hand: ");
-		System.out.println(player1);
-		System.out.println("Player1 deadWood: " + player1.hand.deadWood());
-		System.out.println("Player2 hand: ");
-		System.out.println(game.h2);
-		System.out.println("Player2 deadWood: " + game.h2.deadWood());
-		    
+		/*    System.out.println("Round: " + count);
+		          System.out.println("Discard: " + game.discardPile.toString());
+			      System.out.println("Deck: " + game.deck.toString());
+			          System.out.println("Player1 hand: ");
+				      System.out.println(player1);
+				          System.out.println("Player1 deadWood: " + player1.hand.deadWood());
+					      System.out.println("Player2 hand: ");
+					          System.out.println(game.h2);
+						      System.out.println("Player2 deadWood: " + game.h2.deadWood());
+		*/
 		    
 	    } // end of while loop
 	    System.out.println("wins: " + winCount);

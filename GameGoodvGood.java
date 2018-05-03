@@ -38,7 +38,7 @@ public class GameGoodvGood {
 
 	    // take turns between player 1 and 2 until one of then knocks                                    
 	    while (true) {
-		if (count > 50) {
+		if (count > 1000) {
 		    winner = "Draw";
 		    break;
 		}
