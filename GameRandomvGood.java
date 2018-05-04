@@ -22,8 +22,8 @@ public class GameRandomvGood {
 
 	    Game game = new Game();
 
-	    Player_Good player1 = new Player_Good(game.h1);
-	    Player_Random player2 = new Player_Random(game.h2);
+	    Player_Random player1 = new Player_Random(game.h1);
+	    Player_Good player2 = new Player_Good(game.h2);
 
 	    String s1; // player 1's last move                                                               
 	    String s2; // player 2's last move                                                               
@@ -40,7 +40,7 @@ public class GameRandomvGood {
 	    while (true) {
 
 		// make Player 1's move                                                                  
-		player1.setTopOfDiscard(game.discardPile.peekBottomCard());
+		//player1.setTopOfDiscard(game.discardPile.peekBottomCard());
 		s1 = player1.makeMove();
 
 		if (s1.equals("deck")) {
@@ -69,7 +69,7 @@ public class GameRandomvGood {
 		}
 
 		// make Player 2's move                                                                  
-		//player2.setTopOfDiscard(game.discardPile.peekBottomCard());
+		player2.setTopOfDiscard(game.discardPile.peekBottomCard());
 		s2 = player2.makeMove();
 
 		if (s2.equals("deck")) {

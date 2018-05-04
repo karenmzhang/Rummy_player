@@ -115,9 +115,6 @@ public class GameGoodvGood {
 	    if (winner.equals("Draw")) {
 		draws++;
 	    }
-	    System.out.println("wins: " + p2wins);
-	    System.out.println("draws: " + draws);
-
 	}
 
 	/*int winCount = 0;
@@ -140,6 +137,9 @@ public class GameGoodvGood {
 	System.out.println(pointCount);
 	System.out.println("]");
 	*/
+	System.out.println("wins: " + p2wins);
+	System.out.println("draws: " + draws);
+
 
     }
 }

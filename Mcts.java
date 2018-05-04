@@ -106,7 +106,7 @@ public class Mcts {
 	Node chanceNode = root.children.get(0);
 	Node bestNode = chanceNode.children.get(0);
 	for (Node c : chanceNode.children) {
-	    if ((double)c.wins/((double)c.visits) > 0) {
+	    if ((double)c.wins/((double)c.visits) > best) {
 		best = (double)c.wins/((double)c.visits);
 		bestNode = c;
 	    }
@@ -119,7 +119,7 @@ public class Mcts {
 	Node chanceNode = root.children.get(0);
 	Node bestNode = chanceNode.children.get(0);
 	for (Node c : chanceNode.children) {
-	    if ((double)c.wins/((double)c.visits) > 0 && actualHand.contains(c.discard)) {
+	    if ((double)c.wins/((double)c.visits) > best && actualHand.contains(c.discard)) {
 		best = (double)c.wins/((double)c.visits);
 		bestNode = c;
 	    }
@@ -578,7 +578,7 @@ public class Mcts {
 
 	int winCount = 0;
 	int drawCount = 0;
-	for (int z = 0; z < 10000; z++) {
+	for (int z = 0; z < 100; z++) {
 	    
 	    String s1; // player 1's last move 
 	    String s2; // player 2's last move
@@ -645,7 +645,7 @@ public class Mcts {
 		// make Player 2's move
 		long startTime = System.currentTimeMillis();
 		long elapsedTime = 0L;
-		while (elapsedTime < 0.1*100) {
+		while (elapsedTime < 10*100) {
 		    mc.search();
 		    elapsedTime = System.currentTimeMillis() - startTime;
 		}

@@ -106,7 +106,7 @@ public class MctsPlayer1 {
 	Node chanceNode = root.children.get(0);
 	Node bestNode = chanceNode.children.get(0);
 	for (Node c : chanceNode.children) {
-	    if ((double)c.wins/((double)c.visits) > 0) {
+	    if ((double)c.wins/((double)c.visits) > best) {
 		best = (double)c.wins/((double)c.visits);
 		bestNode = c;
 	    }
@@ -114,12 +114,12 @@ public class MctsPlayer1 {
 	return bestNode.move;
     }
 
-    public Card makeDiscard() {
+    public Card makeDiscard(Hand actualHand) {
 	double best = 0;
 	Node chanceNode = root.children.get(0);
 	Node bestNode = chanceNode.children.get(0);
 	for (Node c : chanceNode.children) {
-	    if ((double)c.wins/((double)c.visits) > 0) {
+	    if ((double)c.wins/((double)c.visits) > best && actualHand.contains(c.discard)) {
 		best = (double)c.wins/((double)c.visits);
 		bestNode = c;
 	    }
@@ -644,8 +644,11 @@ public class MctsPlayer1 {
 		// make Player 1's move
 		long startTime = System.currentTimeMillis();
 		long elapsedTime = 0L;
-		while (elapsedTime < 0.1*100) {
+		int times = 0;
+		while (elapsedTime < 1*100) {
+		//while (times < 10){
 		    mc.search();
+		    times++;
 		    elapsedTime = System.currentTimeMillis() - startTime;
 		}
 		s1 = mc.makeMove();
@@ -656,7 +659,7 @@ public class MctsPlayer1 {
 		    game.h1.draw(game.discardPile.removeBottomCard());
 		}
 
-		discard = mc.makeDiscard();
+		discard = mc.makeDiscard(game.h1);
 		game.h1.discard(discard);
 		game.discardPile.addSpecificCard(discard);
 		//System.out.println("Player2 Discard: " + discard);
@@ -724,11 +727,15 @@ public class MctsPlayer1 {
 					          System.out.println(game.h2);
 						      System.out.println("Player2 deadWood: " + game.h2.deadWood());
 		*/
-		    
+		//	System.out.println(times);
 	    } // end of while loop
+	
 	    System.out.println("wins: " + winCount);
 	    System.out.println("draws: " + drawCount);
-	}
+	
+	    }
+	// System.out.println("wins: " + winCount);
+	//  System.out.println("draws: " + drawCount);
 	
 	
 
