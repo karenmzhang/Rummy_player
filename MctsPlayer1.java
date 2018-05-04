@@ -23,7 +23,7 @@ public class MctsPlayer1 {
     public MctsPlayer1(Hand myHand, Deck discardPile) {
 	// known information
 	root = new Node();
-	root.p1 = true;
+	root.p2 = true;
 	root.move = null;
 	root.discard = discardPile.peekBottomCard();
 	root.discardPile = discardPile;
@@ -191,8 +191,8 @@ public class MctsPlayer1 {
 	    int best = maxDeadWood;
 	    Node bestNode = chanceNode.children.get(0);
 	    for (Node c : chanceNode.children) {
-		if (c.h2.deadWood() < best) {
-		    best = c.h2.deadWood();
+		if (c.h1.deadWood() < best) {
+		    best = c.h1.deadWood();
 		    bestNode = c;
 		}
 	    }

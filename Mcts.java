@@ -578,7 +578,7 @@ public class Mcts {
 
 	int winCount = 0;
 	int drawCount = 0;
-	for (int z = 0; z < 1; z++) {
+	for (int z = 0; z < 10000; z++) {
 	    
 	    String s1; // player 1's last move 
 	    String s2; // player 2's last move
@@ -594,7 +594,7 @@ public class Mcts {
 
 	    Player_Good player1 = new Player_Good(game.h1);
 
-	    System.out.println("Round: " + count);
+	    /*System.out.println("Round: " + count);
 	    System.out.println("Discard: " + game.discardPile.toString());
 	    System.out.println("Deck: " + game.deck.toString());
 	    System.out.println("Player1 hand: ");
@@ -603,7 +603,7 @@ public class Mcts {
 	    System.out.println("Player2 hand: ");
 	    System.out.println(game.h2);
 	    System.out.println("Player2 deadWood: " + game.h2.deadWood());
-	    
+	    */
 	    // make Player 1's move
 	    player1.setTopOfDiscard(game.discardPile.peekBottomCard());
 	    s1 = player1.makeMove();
@@ -614,12 +614,12 @@ public class Mcts {
 	    if (s1.equals("discardPile")) {
 		player1.draw(game.discardPile.removeBottomCard());
 	    }
-	    System.out.println("Player1 move: " + s1);
+	    // System.out.println("Player1 move: " + s1);
 
 	    // make Player 1's discard
 	    discard = player1.discard();
 	    game.discardPile.addSpecificCard(discard);
-	    System.out.println("Player1 Discard: " + discard);
+	    //System.out.println("Player1 Discard: " + discard);
 
 	    game.h1 = player1.hand;
 
@@ -645,7 +645,7 @@ public class Mcts {
 		// make Player 2's move
 		long startTime = System.currentTimeMillis();
 		long elapsedTime = 0L;
-		while (elapsedTime < 2.5*100) {
+		while (elapsedTime < 0.1*100) {
 		    mc.search();
 		    elapsedTime = System.currentTimeMillis() - startTime;
 		}
@@ -660,8 +660,8 @@ public class Mcts {
 		discard = mc.makeDiscard(game.h2);
 		game.h2.discard(discard);
 		game.discardPile.addSpecificCard(discard);
-		System.out.println("Player2 Discard: " + discard);
-		System.out.print("\n");
+		//System.out.println("Player2 Discard: " + discard);
+		//System.out.print("\n");
 		count++;
 
 		// check to see if the game should end
@@ -690,12 +690,12 @@ public class Mcts {
 		if (s1.equals("discardPile")) {
 		    player1.draw(game.discardPile.removeBottomCard());
 		}
-		System.out.println("Player1 move: " + s1);
+		//System.out.println("Player1 move: " + s1);
 
 		// make Player 1's discard
 		discard = player1.discard();
 		game.discardPile.addSpecificCard(discard);
-		System.out.println("Player1 Discard: " + discard);
+		//System.out.println("Player1 Discard: " + discard);
 
 		game.h1 = player1.hand;
 
@@ -715,7 +715,7 @@ public class Mcts {
 		    break;
 		}
 
-		System.out.println("Round: " + count);
+		/*System.out.println("Round: " + count);
 		System.out.println("Discard: " + game.discardPile.toString());
 		System.out.println("Deck: " + game.deck.toString());
 		System.out.println("Player1 hand: ");
@@ -723,7 +723,7 @@ public class Mcts {
 		System.out.println("Player1 deadWood: " + player1.hand.deadWood());
 		System.out.println("Player2 hand: ");
 		System.out.println(game.h2);
-		System.out.println("Player2 deadWood: " + game.h2.deadWood());
+		System.out.println("Player2 deadWood: " + game.h2.deadWood());*/
 		    
 		    
 	    } // end of while loop
