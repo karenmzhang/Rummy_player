@@ -577,7 +577,7 @@ public class MctsPlayer1 {
 
 	int winCount = 0;
 	int drawCount = 0;
-	for (int z = 0; z < 100; z++) {
+	for (int z = 0; z < 1000; z++) {
 	    
 	    String s1; // player 1's last move 
 	    String s2; // player 2's last move
@@ -591,7 +591,7 @@ public class MctsPlayer1 {
 	    game.discardPile.addSpecificCard(game.deck.removeTopCard());
 	    int count = 0; // number of rounds
 
-	    Player_Good player2 = new Player_Good(game.h2);
+	    Player_Random player2 = new Player_Random(game.h2);
 
 	    /*System.out.println("Round: " + count);
 	      System.out.println("Discard: " + game.discardPile.toString());
@@ -683,7 +683,7 @@ public class MctsPlayer1 {
 		}
 
 		// make Player 2's move
-		player2.setTopOfDiscard(game.discardPile.peekBottomCard());
+		//player2.setTopOfDiscard(game.discardPile.peekBottomCard());
 		s2 = player2.makeMove();
 
 		if (s2.equals("deck")) {

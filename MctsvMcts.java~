@@ -1,0 +1,118 @@
+/******************************************************************************
+Monte Carlo Tree Search using UCT 
+******************************************************************************/
+
+import java.util.*;
+import java.util.concurrent.ThreadLocalRandom;
+
+public class MctsvMcts {
+
+    public static void main(String[] args) {
+	
+	int winCount = 0;
+	int drawCount = 0;
+	for (int z = 0; z < 1000; z++) {
+	    
+	    String s1; // player 1's last move 
+	    String s2; // player 2's last move
+	    String winner;
+	    String knocker; // who was the one to knock
+
+	    Card discard;
+	    Game game = new Game();
+
+	    // add one card to the discard pile
+	    game.discardPile.addSpecificCard(game.deck.removeTopCard());
+	    int count = 0; // number of rounds
+	    
+
+	    // take turns between player 1 and 2 until one of then knocks
+	    while (true) {
+		MctsPlayer1 mc1 = new MctsPlayer1(game.h1, game.discardPile);
+
+		// make Player 2's move
+		long startTime = System.currentTimeMillis();
+		long elapsedTime = 0L;
+		while (elapsedTime < 1*100) {
+		    mc1.search();
+		    elapsedTime = System.currentTimeMillis() - startTime;
+		}
+		s1 = mc1.makeMove();
+		if (s1.equals("deck")) {
+		    game.h1.draw(game.deck.removeTopCard());
+		}
+		if (s1.equals("discardPile")) {
+		    game.h1.draw(game.discardPile.removeBottomCard());
+		}
+
+		discard = mc.makeDiscard(game.h1);
+		game.h1.discard(discard);
+		game.discardPile.addSpecificCard(discard);
+		count++;
+
+		// check to see if the game should end
+		if (game.deck.size() <= 2) { 
+		    winner = game.endGame();
+		    knocker = "Deck";
+		    if (winner.equals("player2")) winCount++;
+		    if (winner.equals("Draw")) drawCount++;
+		    break;
+		}
+		if (game.h1.deadWood() <= 10) {
+		    winner = game.endGame();
+		    knocker = "player1";
+		    if (winner.equals("player2")) winCount++;
+		    if (winner.equals("Draw")) drawCount++;
+		    break;
+		}
+
+
+		Mcts mc = new Mcts(game.h2, s1, game.discardPile);
+
+		// make Player 2's move
+		startTime = System.currentTimeMillis();
+		elapsedTime = 0L;
+		while (elapsedTime < 1*100) {
+		    mc.search();
+		    elapsedTime = System.currentTimeMillis() - startTime;
+		}
+		s2 = mc.makeMove();
+		if (s2.equals("deck")) {
+		    game.h2.draw(game.deck.removeTopCard());
+		}
+		if (s2.equals("discardPile")) {
+		    game.h2.draw(game.discardPile.removeBottomCard());
+		}
+
+		discard = mc.makeDiscard(game.h2);
+		game.h2.discard(discard);
+		game.discardPile.addSpecificCard(discard);
+
+		// check to see if the game should end
+		if (game.deck.size() <= 2) { 
+		    winner = game.endGame();
+		    knocker = "Deck";
+		    if (winner.equals("player2")) winCount++;
+		    if (winner.equals("Draw")) drawCount++;
+		    break;
+		}
+		if (game.h2.deadWood() <= 10) {
+		    winner = game.endGame();
+		    knocker = "player2";
+		    if (winner.equals("player2")) winCount++;
+		    if (winner.equals("Draw")) drawCount++;
+		    break;
+		}
+
+		    
+		    
+	    } // end of while loop
+	    System.out.println("wins: " + winCount);
+	    System.out.println("draws: " + drawCount);
+	}
+	
+	
+
+    }
+
+}

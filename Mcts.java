@@ -578,7 +578,7 @@ public class Mcts {
 
 	int winCount = 0;
 	int drawCount = 0;
-	for (int z = 0; z < 100; z++) {
+	for (int z = 0; z < 1000; z++) {
 	    
 	    String s1; // player 1's last move 
 	    String s2; // player 2's last move
@@ -592,7 +592,7 @@ public class Mcts {
 	    game.discardPile.addSpecificCard(game.deck.removeTopCard());
 	    int count = 0; // number of rounds
 
-	    Player_Good player1 = new Player_Good(game.h1);
+	    Player_Random player1 = new Player_Random(game.h1);
 
 	    /*System.out.println("Round: " + count);
 	    System.out.println("Discard: " + game.discardPile.toString());
@@ -605,7 +605,7 @@ public class Mcts {
 	    System.out.println("Player2 deadWood: " + game.h2.deadWood());
 	    */
 	    // make Player 1's move
-	    player1.setTopOfDiscard(game.discardPile.peekBottomCard());
+	    //player1.setTopOfDiscard(game.discardPile.peekBottomCard());
 	    s1 = player1.makeMove();
 
 	    if (s1.equals("deck")) {
@@ -645,7 +645,7 @@ public class Mcts {
 		// make Player 2's move
 		long startTime = System.currentTimeMillis();
 		long elapsedTime = 0L;
-		while (elapsedTime < 10*100) {
+		while (elapsedTime < 1*100) {
 		    mc.search();
 		    elapsedTime = System.currentTimeMillis() - startTime;
 		}
@@ -681,7 +681,7 @@ public class Mcts {
 		}
 
 		// make Player 1's move
-		player1.setTopOfDiscard(game.discardPile.peekBottomCard());
+		//player1.setTopOfDiscard(game.discardPile.peekBottomCard());
 		s1 = player1.makeMove();
 
 		if (s1.equals("deck")) {

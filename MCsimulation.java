@@ -9,9 +9,9 @@ public class MCsimulation {
     public Random rand = ThreadLocalRandom.current();
     private Deck discardPile;
     private Deck knownDeck;
-    private Hand myHand;
-    private int dpScore; // how many games have been won by playing discardPile
-    private int dScore; // how many games have been won by playing deck
+    public Hand myHand;
+    public int dpScore; // how many games have been won by playing discardPile
+    public int dScore; // how many games have been won by playing deck
     private HashSet<Card> beliefState; // what cards I believe opponent might have
     private int counter;
     private int draw;
@@ -136,6 +136,10 @@ public class MCsimulation {
 
 	// end result should be 
 	while (true) {
+	    if (count > 1000) {
+		winner = "Draw";
+		break;
+	    }
 
 	    // make Player 2's discard
 	    discard = player2.discard();
@@ -180,6 +184,7 @@ public class MCsimulation {
 	    if (winner.equals("Draw")) draw++;
 
 	    // make Player 1's move
+	    //player1.setTopOfDiscard(gameChild.discardPile.peekBottomCard());
 	    s1 = player1.makeMove();
 
 	    if (s1.equals("deck")) {
@@ -208,6 +213,7 @@ public class MCsimulation {
 	    }
 
 	    // make Player 2's move
+	    //player2.setTopOfDiscard(gameChild.discardPile.peekBottomCard());
 	    s2 = player2.makeMove();
 
 	    if (s2.equals("deck")) {
@@ -287,8 +293,13 @@ public class MCsimulation {
 
 	// end result should be 
 	while (true) {
+	    if (count > 1000) {
+		winner = "Draw";
+		break;
+	    }
 
 	    // make Player 1's move
+	    //player1.setTopOfDiscard(gameChild.discardPile.peekBottomCard());
 	    s1 = player1.makeMove();
 
 	    if (s1.equals("deck")) {
@@ -317,6 +328,7 @@ public class MCsimulation {
 	    }
 
 	    // make Player 2's move
+	    //player2.setTopOfDiscard(gameChild.discardPile.peekBottomCard());
 	    s2 = player2.makeMove();
 
 	    if (count == 0) {
@@ -373,7 +385,7 @@ public class MCsimulation {
     public static void main(String[] args) {
 	int winCount = 0;
 	int drawCount = 0;
-	for (int z = 0; z < 100; z++) {
+	for (int z = 0; z < 1000; z++) {
 	    
 	    String s1; // player 1's last move 
 	    String s2; // player 2's last move
@@ -387,7 +399,7 @@ public class MCsimulation {
 	    game.discardPile.addSpecificCard(game.deck.removeTopCard());
 	    int count = 0; // number of rounds
 
-	    Player_Good player1 = new Player_Good(game.h1);
+	    Player_Random player1 = new Player_Random(game.h1);
 
 	    // essentially acts as player 2
 	    MCsimulation mc = new MCsimulation(game.h2, game.discardPile);
@@ -409,6 +421,10 @@ public class MCsimulation {
 
 	    // take turns between player 1 and 2 until one of then knocks
 	    while (true) {
+		if (count > 1000) {
+		    winner = "Draw";
+		    break;
+		}
 
 		/*System.out.println("Round: " + count);
 		  System.out.println("Discard: " + game.discardPile.toString());
@@ -422,7 +438,7 @@ public class MCsimulation {
 		  System.out.println("Player2 deadWood: " + mc.myHand.deadWood());*/
 
 		// make Player 1's move
-		player1.setTopOfDiscard(game.discardPile.peekBottomCard());
+		//player1.setTopOfDiscard(game.discardPile.peekBottomCard());
 		s1 = player1.makeMove();
 
 		if (s1.equals("deck")) {
@@ -459,7 +475,7 @@ public class MCsimulation {
 		// make Player 2's move
 		long startTime = System.currentTimeMillis();
 		long elapsedTime = 0L;
-		while (elapsedTime < 2.5*100) {
+		while (elapsedTime < 0.5*100) {
 		    mc.simulate();
 		    elapsedTime = System.currentTimeMillis() - startTime;
 		}
@@ -480,7 +496,7 @@ public class MCsimulation {
 		// make Player 2's discard
 		startTime = System.currentTimeMillis();
 		elapsedTime = 0L;
-		while (elapsedTime < 2.5*100) {
+		while (elapsedTime < 0.5*100) {
 		    mc.discard();
 		    elapsedTime = System.currentTimeMillis() - startTime;
 		}
